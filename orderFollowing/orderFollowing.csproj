@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C042DCBC-650E-4E20-9826-BA0EC4B260BB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>orderFollowing</RootNamespace>
+    <AssemblyName>orderFollowing</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="classes\cBillOperations.cs" />
+    <Compile Include="classes\cCategories.cs" />
+    <Compile Include="classes\cGetTotalBill.cs" />
+    <Compile Include="classes\cProducts.cs" />
+    <Compile Include="classes\cGetDataFromSql.cs" />
+    <Compile Include="classes\cGetOrdersFromSql.cs" />
+    <Compile Include="classes\cInsertUpdateOrder.cs" />
+    <Compile Include="classes\cSqlGeneralCommands.cs" />
+    <Compile Include="classes\cInsUpdStaffIntoSql.cs" />
+    <Compile Include="classes\cStaffActivities.cs" />
+    <Compile Include="classes\cTableOperations.cs" />
+    <Compile Include="forms\billsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\billsForm.Designer.cs">
+      <DependentUpon>billsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\drinksForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\drinksForm.Designer.cs">
+      <DependentUpon>drinksForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\foodsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\foodsForm.Designer.cs">
+      <DependentUpon>foodsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\loginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\loginForm.Designer.cs">
+      <DependentUpon>loginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\ordersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\ordersForm.Designer.cs">
+      <DependentUpon>ordersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\paymentsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\paymentsForm.Designer.cs">
+      <DependentUpon>paymentsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\reservationsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\reservationsForm.Designer.cs">
+      <DependentUpon>reservationsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\staffsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\staffsForm.Designer.cs">
+      <DependentUpon>staffsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\tablesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\tablesForm.Designer.cs">
+      <DependentUpon>tablesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="classes\Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="forms\mainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\mainForm.Designer.cs">
+      <DependentUpon>mainForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="forms\loginForm.resx">
+      <DependentUpon>loginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\staffsForm.resx">
+      <DependentUpon>staffsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\tablesForm.resx">
+      <DependentUpon>tablesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\mainForm.resx">
+      <DependentUpon>mainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\giriş.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\personel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\reservations.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\foods.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\drinks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\payments.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\orders.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\bill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\bill1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\personel1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\x1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\bg image.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\back1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\person.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\exclamation mark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\add icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\addBtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\order notice.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
