@@ -17,7 +17,7 @@ namespace orderFollowing.forms
         cGetDataFromSql getData;
         cInsertUpdateOrder newOrder;
         cBillOperations newBill;
-        cGetTotalBill getBill;
+        cGetTotalBill getBillTotal;
 
         List<PictureBox> tables = new List<PictureBox>();
         List<int> tableCapacities;
@@ -33,7 +33,7 @@ namespace orderFollowing.forms
         int totalTableNumber;
         int billId;
         bool isEditedOrInserted = true;
-        bool isEditedOrUpdated = true;
+        bool isUpdate1stClick = true;
 
         public tablesForm()
         {
@@ -155,13 +155,21 @@ namespace orderFollowing.forms
                     PBoxClicked.BackColor = openTableColor;
                     openTableToService();
                     createNewBill();
+
+                    tidyPnlGeneral();
+                    getBillId();
+                    loadTableOrders(PBoxClicked.Tag.ToString());
+                    lblTotal.Text = "0";
                 }
             }
-
-            tidyPnlGeneral();
-            getBillId();
-            loadTableOrders(PBoxClicked.Tag.ToString());
-            btnPendingOrders.Visible = !checkUnDeliveredItems();
+            else if (PBoxClicked.BackColor == openTableColor)
+            {
+                tidyPnlGeneral();
+                getBillId();
+                loadTableOrders(PBoxClicked.Tag.ToString());
+                btnPendingOrders.Visible = !checkUnDeliveredItems();
+                getTotalBill();
+            }
         }
         void openTableToService()
         {
@@ -307,6 +315,10 @@ namespace orderFollowing.forms
         private void btnCloseOrderPanel_Click(object sender, EventArgs e)
         {
             pnlGeneral.Visible = false;
+
+            LViewUndelivered.Visible = false;
+            btnDeleteOrder.Visible = true;
+            btnNewOrder.Visible = true;
         }
         private bool validateAllConditions()
         {
@@ -460,6 +472,8 @@ namespace orderFollowing.forms
         private void btnCloseNewOrderPnl_Click(object sender, EventArgs e)
         {
             isEditedOrInserted = true;
+            btnDeleteOrder.Visible = true;
+            btnNewOrder.Visible = true;
             tidyPnl_btnCloseNewOrder();
 
             loadTableOrders(PBoxClicked.Tag.ToString());
@@ -472,7 +486,7 @@ namespace orderFollowing.forms
             btnNewOrder.Visible = true;
             btnCloseAccount.Visible = true;
             pnlChoseProduct.Visible = false;
-            isEditedOrUpdated = true;
+            isUpdate1stClick = true;
             isEditedOrInserted = true;
         }
 
@@ -527,6 +541,10 @@ namespace orderFollowing.forms
                     PBoxClicked.BackColor = closeTableColor;
                 }
             }
+            else
+            {
+                MessageBox.Show("Request Failed! There's undelivered item!");
+            }
         }
         void closeTableAccount()
         {
@@ -546,10 +564,13 @@ namespace orderFollowing.forms
         }
         void getTotalBill()
         {
-            getBill = new cGetTotalBill();
-            getBill.sqlQuery = "select total from BILLS where billID = @billId";
-            getBill.billId = billId;
-            getBill.getTotalBill();
+            getBillTotal = new cGetTotalBill();
+            getBillTotal.sqlQuery = "select total from BILLS where billID = @billId";
+            getBillTotal.billId = billId;
+            getBillTotal.getTotalBill();
+
+            decimal cost = Convert.ToDecimal(getBillTotal.dataTable.Rows[0]["total"]);
+            lblTotal.Text = String.Format("{0:0.00}", cost);
         }
         void addPriceToBill(decimal price)
         {
@@ -561,19 +582,25 @@ namespace orderFollowing.forms
             newBill.additionalCost = price;
             newBill.addPriceToTotal();
         }
-       
         private void btnDeleteOrder_Click(object sender, EventArgs e)
         {
-            string message = "Are you sure to delete this order?";
-            DialogResult result = MessageBox.Show(message, "Delete Order", MessageBoxButtons.OKCancel);
-            if (dGridView.CurrentRow != null && result == DialogResult.OK)
+            if (!Convert.ToBoolean(dGridView.CurrentRow.Cells["Is Delivered"].Value))
             {
-                deleteOrder();
-                loadTableOrders(PBoxClicked.Tag.ToString());
+                string message = "Are you sure to delete this order?";
+                DialogResult result = MessageBox.Show(message, "Delete Order", MessageBoxButtons.OKCancel);
+                if (dGridView.CurrentRow != null && result == DialogResult.OK)
+                {
+                    deleteOrder();
+                    loadTableOrders(PBoxClicked.Tag.ToString());
+                }
+                else
+                {
+                    MessageBox.Show("Please select an order to delete!");
+                }
             }
             else
             {
-                MessageBox.Show("Please select an order to delete!");
+                MessageBox.Show("This order is delivered!");
             }
         }
         void deleteOrder()
@@ -598,18 +625,25 @@ namespace orderFollowing.forms
         {
             if (dGridView.CurrentRow != null)
             {
-                if (isEditedOrUpdated)
+                if (!Convert.ToBoolean(dGridView.CurrentRow.Cells["Is Delivered"].Value))
                 {
-                    isEditedOrUpdated = false;
-                    tidyPnl_btnUpdate();
-                    clearInputItems();
+                    if (isUpdate1stClick)
+                    {
+                        isUpdate1stClick = false;
+                        tidyPnl_btnUpdate();
+                        clearInputItems();
+                    }
+                    else if (validateAllConditions())
+                    {
+                        isUpdate1stClick = true;
+                        updateSelectedOrder();
+                        pnlChoseProduct.Visible = false;
+                        loadTableOrders(PBoxClicked.Tag.ToString());
+                    }
                 }
-                else if (validateAllConditions())
+                else
                 {
-                    isEditedOrUpdated = true;
-                    updateSelectedOrder();
-                    pnlChoseProduct.Visible = false;
-                    loadTableOrders(PBoxClicked.Tag.ToString());
+                    MessageBox.Show("This order is delivered!");
                 }
             }
             else
@@ -669,6 +703,7 @@ namespace orderFollowing.forms
                 decimal productPrice = detectProductPrice(LViewUndelivered.FocusedItem.SubItems[1].Text);//1 means productName
                 int quantity = detectOrderQuantity();
                 addPriceToBill(quantity * productPrice);
+                getTotalBill();
                 deleteDeliveredOrder();
                 loadTableOrders(PBoxClicked.Tag.ToString());
                 if (checkUnDeliveredItems())

@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(tablesForm));
             this.pnlGeneral = new System.Windows.Forms.Panel();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.LViewUndelivered = new System.Windows.Forms.ListView();
             this.CHorderId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.CHproduct = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -73,6 +75,8 @@
             // pnlGeneral
             // 
             this.pnlGeneral.BackColor = System.Drawing.Color.Khaki;
+            this.pnlGeneral.Controls.Add(this.lblTotal);
+            this.pnlGeneral.Controls.Add(this.label9);
             this.pnlGeneral.Controls.Add(this.LViewUndelivered);
             this.pnlGeneral.Controls.Add(this.btnPendingOrders);
             this.pnlGeneral.Controls.Add(this.btnDeleteOrder);
@@ -88,6 +92,28 @@
             this.pnlGeneral.TabIndex = 20;
             this.pnlGeneral.Visible = false;
             // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.BackColor = System.Drawing.Color.Crimson;
+            this.lblTotal.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblTotal.Location = new System.Drawing.Point(300, 235);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(18, 22);
+            this.lblTotal.TabIndex = 27;
+            this.lblTotal.Text = "0";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Crimson;
+            this.label9.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label9.Location = new System.Drawing.Point(249, 235);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(47, 22);
+            this.label9.TabIndex = 26;
+            this.label9.Text = "Total";
+            // 
             // LViewUndelivered
             // 
             this.LViewUndelivered.BackColor = System.Drawing.Color.Khaki;
@@ -96,6 +122,7 @@
             this.CHproduct,
             this.CHstatus});
             this.LViewUndelivered.FullRowSelect = true;
+            this.LViewUndelivered.HideSelection = false;
             this.LViewUndelivered.Location = new System.Drawing.Point(315, 122);
             this.LViewUndelivered.Name = "LViewUndelivered";
             this.LViewUndelivered.Size = new System.Drawing.Size(181, 100);
@@ -484,6 +511,7 @@
             this.Text = "tablesForm";
             this.Load += new System.EventHandler(this.tablesForm_Load);
             this.pnlGeneral.ResumeLayout(false);
+            this.pnlGeneral.PerformLayout();
             this.pnlChoseProduct.ResumeLayout(false);
             this.pnlChoseProduct.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBoxWarning)).EndInit();
@@ -531,5 +559,7 @@
         private System.Windows.Forms.ColumnHeader CHorderId;
         private System.Windows.Forms.ColumnHeader CHproduct;
         private System.Windows.Forms.ColumnHeader CHstatus;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Label label9;
     }
 }

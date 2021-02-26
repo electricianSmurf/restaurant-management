@@ -19,3 +19,16 @@ C:\Users\R\Desktop\VStudio projects\orderFollowing\orderFollowing\obj\Debug\orde
 C:\Users\R\Desktop\VStudio projects\orderFollowing\orderFollowing\obj\Debug\orderFollowing.mainForm.resources
 C:\Users\R\Desktop\VStudio projects\orderFollowing\orderFollowing\obj\Debug\orderFollowing.forms.staffsForm.resources
 C:\Users\R\Desktop\VStudio projects\orderFollowing\orderFollowing\obj\Debug\orderFollowing.forms.tablesForm.resources
+C:\Users\R\Desktop\VStudio projects\orderFollowing\restaurant-management\orderFollowing\bin\Debug\orderFollowing.exe.config
+C:\Users\R\Desktop\VStudio projects\orderFollowing\restaurant-management\orderFollowing\obj\Debug\orderFollowing.exe
+C:\Users\R\Desktop\VStudio projects\orderFollowing\restaurant-management\orderFollowing\obj\Debug\orderFollowing.pdb
+C:\Users\R\Desktop\VStudio projects\orderFollowing\restaurant-management\orderFollowing\bin\Debug\orderFollowing.exe
+C:\Users\R\Desktop\VStudio projects\orderFollowing\restaurant-management\orderFollowing\bin\Debug\orderFollowing.pdb
+C:\Users\R\Desktop\VStudio projects\orderFollowing\restaurant-management\orderFollowing\obj\Debug\orderFollowing.csprojAssemblyReference.cache
+C:\Users\R\Desktop\VStudio projects\orderFollowing\restaurant-management\orderFollowing\obj\Debug\orderFollowing.loginForm.resources
+C:\Users\R\Desktop\VStudio projects\orderFollowing\restaurant-management\orderFollowing\obj\Debug\orderFollowing.forms.staffsForm.resources
+C:\Users\R\Desktop\VStudio projects\orderFollowing\restaurant-management\orderFollowing\obj\Debug\orderFollowing.forms.tablesForm.resources
+C:\Users\R\Desktop\VStudio projects\orderFollowing\restaurant-management\orderFollowing\obj\Debug\orderFollowing.Properties.Resources.resources
+C:\Users\R\Desktop\VStudio projects\orderFollowing\restaurant-management\orderFollowing\obj\Debug\orderFollowing.mainForm.resources
+C:\Users\R\Desktop\VStudio projects\orderFollowing\restaurant-management\orderFollowing\obj\Debug\orderFollowing.csproj.GenerateResource.cache
+C:\Users\R\Desktop\VStudio projects\orderFollowing\restaurant-management\orderFollowing\obj\Debug\orderFollowing.csproj.CoreCompileInputs.cache
