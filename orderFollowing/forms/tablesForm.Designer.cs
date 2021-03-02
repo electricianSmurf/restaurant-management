@@ -63,6 +63,7 @@
             this.btnCloseAddPanel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnRemoveTable = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             this.pnlGeneral.SuspendLayout();
             this.pnlChoseProduct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBoxWarning)).BeginInit();
@@ -444,7 +445,7 @@
             this.btnCloseAddPanel.Size = new System.Drawing.Size(22, 22);
             this.btnCloseAddPanel.TabIndex = 2;
             this.btnCloseAddPanel.UseVisualStyleBackColor = false;
-            this.btnCloseAddPanel.Click += new System.EventHandler(this.btnClosePanel_Click);
+            this.btnCloseAddPanel.Click += new System.EventHandler(this.btnCloseAddPanel_Click);
             // 
             // label1
             // 
@@ -469,7 +470,19 @@
             this.btnRemoveTable.Size = new System.Drawing.Size(67, 64);
             this.btnRemoveTable.TabIndex = 23;
             this.btnRemoveTable.UseVisualStyleBackColor = false;
-            this.btnRemoveTable.Click += new System.EventHandler(this.btnMinusTable_Click);
+            this.btnRemoveTable.Click += new System.EventHandler(this.btnRemoveTable_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(2, 207);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(47, 22);
+            this.label7.TabIndex = 24;
+            this.label7.Text = "tags: ";
             // 
             // tablesForm
             // 
@@ -478,6 +491,7 @@
             this.BackgroundImage = global::orderFollowing.Properties.Resources.bg_image;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(745, 457);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.btnRemoveTable);
             this.Controls.Add(this.pnlAddTable);
             this.Controls.Add(this.btnAddTable);
@@ -497,6 +511,7 @@
             this.pnlAddTable.ResumeLayout(false);
             this.pnlAddTable.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -536,5 +551,6 @@
         private System.Windows.Forms.ColumnHeader CHstatus;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label7;
     }
 }
