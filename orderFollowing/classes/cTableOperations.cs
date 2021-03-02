@@ -42,6 +42,30 @@ namespace orderFollowing
                 }   
             }
         }
+        public void deleteTable()
+        {
+            using (sqlGeneralCommands.connectionString)
+            {
+                using (sqlGeneralCommands.sqlCommand = new SqlCommand())
+                {
+                    sqlGeneralCommands.sqlCommand.Connection = sqlGeneralCommands.connectionString;
+                    sqlGeneralCommands.sqlCommand.CommandText = sqlQuery;
+
+                    sqlGeneralCommands.sqlCommand.Parameters.AddWithValue("@tableId", tableId);
+
+                    try
+                    {
+                        sqlGeneralCommands.connectionString.Open();
+                        sqlGeneralCommands.sqlCommand.ExecuteNonQuery();
+                        sqlGeneralCommands.connectionString.Close();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Connection Failed!");
+                    }
+                }
+            }
+        }
         public void openNewAccount()
         {
             using (sqlGeneralCommands.connectionString)

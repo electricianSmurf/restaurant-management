@@ -19,7 +19,9 @@ namespace orderFollowing.forms
         cBillOperations newBill;
         cGetTotalBill getBillTotal;
 
-        List<PictureBox> tables = new List<PictureBox>();
+        List<PictureBox> lstTables = new List<PictureBox>();
+        List<Label> lstLabels = new List<Label>();
+
         List<int> tableCapacities;
         List<bool> productStatus;
         PictureBox PBoxClicked = new PictureBox();
@@ -29,11 +31,11 @@ namespace orderFollowing.forms
 
         List<cCategories> categoryList;
         string staffUserName;
-        int tableTag = 1;
         int totalTableNumber;
         int billId;
         bool isEditedOrInserted = true;
         bool isUpdate1stClick = true;
+        bool isRemoveTableClicked;
 
         public tablesForm()
         {
@@ -69,6 +71,7 @@ namespace orderFollowing.forms
                 }
             }
         }
+
         private void tablesForm_Load(object sender, EventArgs e)
         {
             createLabelsTables();
@@ -102,6 +105,7 @@ namespace orderFollowing.forms
                     loc.Y = constLoc.Y;
                     label.Location = loc;
                     Controls.Add(label);
+                    lstLabels.Add(label);
                     createTable(column, row, loc);
                 }
                 tablesToBeProduced -= 10;
@@ -126,16 +130,15 @@ namespace orderFollowing.forms
             table.Location = new Point(loc.X, loc.Y + 25);
             table.SizeMode = PictureBoxSizeMode.StretchImage;
             table.Click += table_Click;
-            table.Tag = tableTag;
-            table.BackColor = detectTableBackColor(tableTag);
-            tableTag++;
-            tables.Add(table);
+            table.Tag = Convert.ToInt32(getData.dataTable.Rows[column + (10 * row)]["tableId"]);
+            table.BackColor = detectTableBackColor(column + (10 * row));
+            lstTables.Add(table);
             Controls.Add(table);
         }
         private Color detectTableBackColor(int tableNo)
         {
             Color tableColor = closeTableColor; 
-            if (Convert.ToBoolean(getData.dataTable.Rows[tableTag - 1]["serviceStatus"]))
+            if (Convert.ToBoolean(getData.dataTable.Rows[tableNo]["serviceStatus"]))
             {
                 tableColor = openTableColor;
             }
@@ -146,29 +149,36 @@ namespace orderFollowing.forms
         {
             PBoxClicked = sender as PictureBox;
 
-            if (PBoxClicked.BackColor == closeTableColor)
+            if (!isRemoveTableClicked)
             {
-                string message = "Do you want to open a new account?";
-                DialogResult result = MessageBox.Show(message, "New Account", MessageBoxButtons.OKCancel);
-                if (result == DialogResult.OK)
+                if (PBoxClicked.BackColor == closeTableColor)
                 {
-                    PBoxClicked.BackColor = openTableColor;
-                    openTableToService();
-                    createNewBill();
+                    string message = "Do you want to open a new account?";
+                    DialogResult result = MessageBox.Show(message, "New Account", MessageBoxButtons.OKCancel);
+                    if (result == DialogResult.OK)
+                    {
+                        PBoxClicked.BackColor = openTableColor;
+                        openTableToService();
+                        createNewBill();
 
+                        tidyPnlGeneral();
+                        getBillId();
+                        loadTableOrders(PBoxClicked.Tag.ToString());
+                        lblTotal.Text = "0";
+                    }
+                }
+                else if (PBoxClicked.BackColor == openTableColor)
+                {
                     tidyPnlGeneral();
                     getBillId();
                     loadTableOrders(PBoxClicked.Tag.ToString());
-                    lblTotal.Text = "0";
+                    btnPendingOrders.Visible = !checkUnDeliveredItems();
+                    getTotalBill();
                 }
             }
-            else if (PBoxClicked.BackColor == openTableColor)
+            else// when isMinusTableClicked = true
             {
-                tidyPnlGeneral();
-                getBillId();
-                loadTableOrders(PBoxClicked.Tag.ToString());
-                btnPendingOrders.Visible = !checkUnDeliveredItems();
-                getTotalBill();
+                removeTable();
             }
         }
         void openTableToService()
@@ -283,15 +293,12 @@ namespace orderFollowing.forms
 
         private void btnAddTable_Click(object sender, EventArgs e)
         {
-            if (pnlAddMinusTable.Visible)
+            if (pnlAddTable.Visible)
             {
                 addTable();
-                this.Hide();
-                forms.tablesForm tablesForm = new forms.tablesForm();
-                tablesForm.ShowDialog();
-                this.Close();
+                refreshForm();
             }
-            pnlAddMinusTable.Visible = true;
+            pnlAddTable.Visible = true;
             TBoxTableAmount.Text = "1";
         }
         void addTable()
@@ -307,9 +314,16 @@ namespace orderFollowing.forms
                 tableOperation.addNewTable();
             }
         }
+        void refreshForm()
+        {
+            this.Hide();
+            forms.tablesForm tablesForm = new forms.tablesForm();
+            tablesForm.ShowDialog();
+            this.Close();
+        }
         private void btnClosePanel_Click(object sender, EventArgs e)
         {
-            pnlAddMinusTable.Visible = false;
+            pnlAddTable.Visible = false;
         }
 
         private void btnCloseOrderPanel_Click(object sender, EventArgs e)
@@ -755,6 +769,26 @@ namespace orderFollowing.forms
                 LViewUndelivered.Items.Remove(item);
             }
         }
-       
+        void removeTable()
+        {
+            string message = "Are you sure you want to delete table " + PBoxClicked.Tag.ToString();
+            DialogResult result = MessageBox.Show(message, "Delete Table", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes && PBoxClicked.BackColor == closeTableColor)
+            {
+                tableOperation = new cTableOperations();
+                tableOperation.sqlQuery = "delete from TABLES where tableID = @tableId";
+                tableOperation.tableId = PBoxClicked.Tag.ToString();
+                tableOperation.deleteTable();
+
+                refreshForm();
+                isRemoveTableClicked = false;
+            }
+        }
+        private void btnMinusTable_Click(object sender, EventArgs e)
+        {
+            isRemoveTableClicked = true;
+            string message = "Please choose a table to delete!";
+            DialogResult result = MessageBox.Show(message, "Choose table", MessageBoxButtons.OK);
+        }
     }
 }
