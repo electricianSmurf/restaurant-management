@@ -56,20 +56,18 @@
             this.btnCloseAccount = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnAddTable = new System.Windows.Forms.Button();
-            this.pnlAddMinusTable = new System.Windows.Forms.Panel();
+            this.pnlAddTable = new System.Windows.Forms.Panel();
             this.CBoxTableCapacity = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.TBoxTableAmount = new System.Windows.Forms.TextBox();
             this.btnCloseAddPanel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnMinusTable = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.btnRemoveTable = new System.Windows.Forms.Button();
             this.pnlGeneral.SuspendLayout();
             this.pnlChoseProduct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBoxWarning)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dGridView)).BeginInit();
-            this.pnlAddMinusTable.SuspendLayout();
+            this.pnlAddTable.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlGeneral
@@ -394,19 +392,19 @@
             this.btnAddTable.UseVisualStyleBackColor = false;
             this.btnAddTable.Click += new System.EventHandler(this.btnAddTable_Click);
             // 
-            // pnlAddMinusTable
+            // pnlAddTable
             // 
-            this.pnlAddMinusTable.BackColor = System.Drawing.Color.Khaki;
-            this.pnlAddMinusTable.Controls.Add(this.CBoxTableCapacity);
-            this.pnlAddMinusTable.Controls.Add(this.label2);
-            this.pnlAddMinusTable.Controls.Add(this.TBoxTableAmount);
-            this.pnlAddMinusTable.Controls.Add(this.btnCloseAddPanel);
-            this.pnlAddMinusTable.Controls.Add(this.label1);
-            this.pnlAddMinusTable.Location = new System.Drawing.Point(262, 180);
-            this.pnlAddMinusTable.Name = "pnlAddMinusTable";
-            this.pnlAddMinusTable.Size = new System.Drawing.Size(235, 85);
-            this.pnlAddMinusTable.TabIndex = 22;
-            this.pnlAddMinusTable.Visible = false;
+            this.pnlAddTable.BackColor = System.Drawing.Color.Khaki;
+            this.pnlAddTable.Controls.Add(this.CBoxTableCapacity);
+            this.pnlAddTable.Controls.Add(this.label2);
+            this.pnlAddTable.Controls.Add(this.TBoxTableAmount);
+            this.pnlAddTable.Controls.Add(this.btnCloseAddPanel);
+            this.pnlAddTable.Controls.Add(this.label1);
+            this.pnlAddTable.Location = new System.Drawing.Point(262, 180);
+            this.pnlAddTable.Name = "pnlAddTable";
+            this.pnlAddTable.Size = new System.Drawing.Size(235, 85);
+            this.pnlAddTable.TabIndex = 22;
+            this.pnlAddTable.Visible = false;
             // 
             // CBoxTableCapacity
             // 
@@ -459,37 +457,19 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Capacity";
             // 
-            // btnMinusTable
+            // btnRemoveTable
             // 
-            this.btnMinusTable.BackColor = System.Drawing.Color.Black;
-            this.btnMinusTable.BackgroundImage = global::orderFollowing.Properties.Resources.minus;
-            this.btnMinusTable.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnMinusTable.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMinusTable.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnMinusTable.Location = new System.Drawing.Point(577, 380);
-            this.btnMinusTable.Name = "btnMinusTable";
-            this.btnMinusTable.Size = new System.Drawing.Size(67, 64);
-            this.btnMinusTable.TabIndex = 23;
-            this.btnMinusTable.UseVisualStyleBackColor = false;
-            this.btnMinusTable.Visible = false;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(0, 204);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(32, 13);
-            this.label7.TabIndex = 24;
-            this.label7.Text = "label ";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(0, 235);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(32, 13);
-            this.label8.TabIndex = 25;
-            this.label8.Text = "label ";
+            this.btnRemoveTable.BackColor = System.Drawing.Color.Black;
+            this.btnRemoveTable.BackgroundImage = global::orderFollowing.Properties.Resources.minus;
+            this.btnRemoveTable.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRemoveTable.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRemoveTable.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRemoveTable.Location = new System.Drawing.Point(577, 380);
+            this.btnRemoveTable.Name = "btnRemoveTable";
+            this.btnRemoveTable.Size = new System.Drawing.Size(67, 64);
+            this.btnRemoveTable.TabIndex = 23;
+            this.btnRemoveTable.UseVisualStyleBackColor = false;
+            this.btnRemoveTable.Click += new System.EventHandler(this.btnMinusTable_Click);
             // 
             // tablesForm
             // 
@@ -498,10 +478,8 @@
             this.BackgroundImage = global::orderFollowing.Properties.Resources.bg_image;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(745, 457);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.btnMinusTable);
-            this.Controls.Add(this.pnlAddMinusTable);
+            this.Controls.Add(this.btnRemoveTable);
+            this.Controls.Add(this.pnlAddTable);
             this.Controls.Add(this.btnAddTable);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.pnlGeneral);
@@ -516,10 +494,9 @@
             this.pnlChoseProduct.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBoxWarning)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dGridView)).EndInit();
-            this.pnlAddMinusTable.ResumeLayout(false);
-            this.pnlAddMinusTable.PerformLayout();
+            this.pnlAddTable.ResumeLayout(false);
+            this.pnlAddTable.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -531,13 +508,13 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.DataGridView dGridView;
         private System.Windows.Forms.Button btnAddTable;
-        private System.Windows.Forms.Panel pnlAddMinusTable;
+        private System.Windows.Forms.Panel pnlAddTable;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TBoxTableAmount;
         private System.Windows.Forms.Button btnCloseAddPanel;
         private System.Windows.Forms.ComboBox CBoxTableCapacity;
-        private System.Windows.Forms.Button btnMinusTable;
+        private System.Windows.Forms.Button btnRemoveTable;
         private System.Windows.Forms.Button btnCloseGeneralPanel;
         private System.Windows.Forms.Panel pnlChoseProduct;
         private System.Windows.Forms.RichTextBox TBoxProductContent;
@@ -550,12 +527,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnCloseNewOrderPnl;
         private System.Windows.Forms.PictureBox PBoxWarning;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnDeleteOrder;
         private System.Windows.Forms.Button btnUpdateOrder;
         private System.Windows.Forms.Button btnPendingOrders;
         private System.Windows.Forms.ListView LViewUndelivered;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ColumnHeader CHorderId;
         private System.Windows.Forms.ColumnHeader CHproduct;
         private System.Windows.Forms.ColumnHeader CHstatus;
