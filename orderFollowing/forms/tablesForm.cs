@@ -827,6 +827,8 @@ namespace orderFollowing.forms
         private void btnCloseOrderPanel_Click(object sender, EventArgs e)
         {
             pnlGeneral.Visible = false;
+            pnlChoseProduct.Visible = false;
+            isEditedOrInserted = true;
 
             LViewUndelivered.Visible = false;
             btnDeleteOrder.Visible = true;

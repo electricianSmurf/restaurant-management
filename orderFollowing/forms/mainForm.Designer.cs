@@ -63,6 +63,7 @@
             this.btnBills.Size = new System.Drawing.Size(124, 86);
             this.btnBills.TabIndex = 7;
             this.btnBills.UseVisualStyleBackColor = true;
+            this.btnBills.Click += new System.EventHandler(this.btnBills_Click);
             // 
             // btnOrders
             // 
@@ -75,6 +76,7 @@
             this.btnOrders.Size = new System.Drawing.Size(124, 86);
             this.btnOrders.TabIndex = 6;
             this.btnOrders.UseVisualStyleBackColor = true;
+            this.btnOrders.Click += new System.EventHandler(this.btnOrders_Click);
             // 
             // btnPayments
             // 
@@ -87,6 +89,7 @@
             this.btnPayments.Size = new System.Drawing.Size(124, 86);
             this.btnPayments.TabIndex = 5;
             this.btnPayments.UseVisualStyleBackColor = true;
+            this.btnPayments.Click += new System.EventHandler(this.btnPayments_Click);
             // 
             // btnDrinks
             // 

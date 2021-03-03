@@ -16,5 +16,33 @@ namespace orderFollowing.forms
         {
             InitializeComponent();
         }
+
+        private void btnNewOrders_Click(object sender, EventArgs e)
+        {
+            lblTitle.Text = "New Orders";
+        }
+
+        private void btnPreparingOrders_Click(object sender, EventArgs e)
+        {
+            lblTitle.Text = "Orders In Making";
+        }
+
+        private void btnReadyOrders_Click(object sender, EventArgs e)
+        {
+            lblTitle.Text = "Ready Orders";
+        }
+
+        private void btnDeliveredOrders_Click(object sender, EventArgs e)
+        {
+            lblTitle.Text = "Delivered Orders";
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            mainForm mainForm = new mainForm();
+            mainForm.ShowDialog();
+            this.Close();
+        }
     }
 }

@@ -52,5 +52,29 @@ namespace orderFollowing
             tablesForm.ShowDialog();
             this.Close();
         }
+
+        private void btnOrders_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            forms.ordersForm ordersForm = new forms.ordersForm();
+            ordersForm.ShowDialog();
+            this.Close();
+        }
+
+        private void btnBills_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            forms.billsForm billsForm = new forms.billsForm();
+            billsForm.ShowDialog();
+            this.Close();
+        }
+
+        private void btnPayments_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            forms.paymentsForm paymentsForm = new forms.paymentsForm();
+            paymentsForm.ShowDialog();
+            this.Close();
+        }
     }
 }
