@@ -23,7 +23,7 @@ namespace orderFollowing
         }
         private void loginForm_Load(object sender, EventArgs e)
         {
-            getData.sqlQuery = "select staffNameSurname, staffUserName, staffPassword FROM STAFFS";
+            getData.sqlQuery = "select staffNameSurname, staffUserName, staffPassword FROM STAFFS where staffStatus = 1";
             getData.GetDataFromSql();
             dataGridView1.DataSource = getData.dataTable;
             for (int row = 0; row < getData.dataTable.Rows.Count; row++)

@@ -29,7 +29,18 @@ namespace orderFollowing.forms
         public staffsForm()
         {
             InitializeComponent();
+            checkIsAdminOnline();
+
             PBoxPerson.Image = defaultImage;
+        }
+        void checkIsAdminOnline()
+        {
+            string staffUserName = loginForm.onlineUserName;
+            if (!staffUserName.Equals("admin"))
+            {
+                btnUpdateStaff.Visible = false;
+                btnAddStaff.Visible = false;
+            }
         }
         private void staffsForm_Load(object sender, EventArgs e)
         {

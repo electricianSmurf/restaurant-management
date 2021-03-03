@@ -40,9 +40,21 @@ namespace orderFollowing.forms
         {
             InitializeComponent();
 
+            checkIsAdminOnline();
+
             getTables();
             getExistingTableCapacities();
             fillCBoxCapacity();
+        }
+
+        void checkIsAdminOnline()
+        {
+            staffUserName = loginForm.onlineUserName;
+            if (!staffUserName.Equals("admin"))
+            {
+                btnAddTable.Visible = false;
+                btnRemoveTable.Visible = false;
+            }
         }
 
         void getTables()
@@ -76,7 +88,6 @@ namespace orderFollowing.forms
         {
             dGridViewSettings();
             createLabelsTables();
-            staffUserName = loginForm.onlineUserName;
             bringCategoriesAndProducts();
         }
 
