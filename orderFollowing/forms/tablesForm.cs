@@ -22,7 +22,6 @@ namespace orderFollowing.forms
         List<cCategories> categoryList;
 
         List<int> lstTableCapacities;
-        List<bool> lstProductStatus;
 
         PictureBox PBoxClicked = new PictureBox();
 
@@ -49,7 +48,7 @@ namespace orderFollowing.forms
         void getTables()
         {
             getData = new cGetDataFromSql();
-            getData.sqlQuery = "select * from tables";
+            getData.sqlQuery = "select * from tables where tableStatus = 1";
             getData.GetDataFromSql();
         }
 
@@ -58,7 +57,7 @@ namespace orderFollowing.forms
             lstTableCapacities = new List<int>();
             for (int i = 0; i < getData.dataTable.Rows.Count; i++)
             {
-                if (Convert.ToBoolean(getData.dataTable.Rows[i]["tableStatus"]) == true)
+                if (Convert.ToBoolean(getData.dataTable.Rows[i]["tableStatus"]))
                 {
                     lstTableCapacities.Add(Convert.ToInt32(getData.dataTable.Rows[i]["tableCapacity"]));
                 }
@@ -75,9 +74,9 @@ namespace orderFollowing.forms
 
         private void tablesForm_Load(object sender, EventArgs e)
         {
+            dGridViewSettings();
             createLabelsTables();
             staffUserName = loginForm.onlineUserName;
-            dGridViewSettings();
             bringCategoriesAndProducts();
         }
 
@@ -145,14 +144,13 @@ namespace orderFollowing.forms
         {
             PictureBox table;
             table = new PictureBox();
-            table.Name = "table" + ((row * 10) + column + 1).ToString() + "Cap" + lstTableCapacities[(row * 10) + column].ToString();
+            table.Name = ((row * 10) + column + 1).ToString();
             table.Image = detectTableImage(lstTableCapacities[(row * 10) + column]);
             table.Size = new Size(60, 60);
             table.Location = new Point(loc.X, loc.Y + 25);
             table.SizeMode = PictureBoxSizeMode.StretchImage;
             table.Click += table_Click;
             table.Tag = Convert.ToInt32(getData.dataTable.Rows[column + (10 * row)]["tableId"]);
-            label7.Text = label7.Text + " / " + table.Tag.ToString();
             table.BackColor = detectTableBackColor(column + (10 * row));
             Controls.Add(table);
         }
@@ -341,7 +339,6 @@ namespace orderFollowing.forms
         void openTableToService()
         {
             tableOperation = new cTableOperations();
-            tableOperation.sqlQuery = "update tables set serviceStatus = 1 where tableID = @tableId";
             tableOperation.tableId = PBoxClicked.Tag.ToString();
             tableOperation.openNewAccount();
         }
@@ -386,8 +383,16 @@ namespace orderFollowing.forms
             getOrders.GetOrdersFromSql();
             dGridView.DataSource = getOrders.dataTable;
             dGridView.Columns["orderId"].Visible = false;
-        }
 
+            writeTableNumber();
+        }
+        void writeTableNumber()
+        {
+            for (int i = 0; i < dGridView.Rows.Count; i++)
+            {
+                dGridView.Rows[i].Cells["Table"].Value = PBoxClicked.Name;
+            }
+        }
         private bool checkUnDeliveredItems()
         {
             bool isEverythingDelivered = true;
@@ -419,7 +424,6 @@ namespace orderFollowing.forms
             if (result == DialogResult.Yes && PBoxClicked.BackColor == closeTableColor)
             {
                 tableOperation = new cTableOperations();
-                tableOperation.sqlQuery = "delete from TABLES where tableID = @tableId";
                 tableOperation.tableId = PBoxClicked.Tag.ToString();
                 tableOperation.deleteTable();
 
@@ -796,7 +800,6 @@ namespace orderFollowing.forms
         void closeTableAccount()
         {
             tableOperation = new cTableOperations();
-            tableOperation.sqlQuery = "update TABLES set serviceStatus = 0 where tableID = @tableId";
             tableOperation.tableId = PBoxClicked.Tag.ToString();
             tableOperation.closeAccount();
         }

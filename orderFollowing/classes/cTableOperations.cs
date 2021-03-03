@@ -49,7 +49,7 @@ namespace orderFollowing
                 using (sqlGeneralCommands.sqlCommand = new SqlCommand())
                 {
                     sqlGeneralCommands.sqlCommand.Connection = sqlGeneralCommands.connectionString;
-                    sqlGeneralCommands.sqlCommand.CommandText = sqlQuery;
+                    sqlGeneralCommands.sqlCommand.CommandText = "update TABLES set tableStatus = 0 where tableID = @tableId";
 
                     sqlGeneralCommands.sqlCommand.Parameters.AddWithValue("@tableId", tableId);
 
@@ -73,7 +73,7 @@ namespace orderFollowing
                 using (sqlGeneralCommands.sqlCommand = new SqlCommand())
                 {
                     sqlGeneralCommands.sqlCommand.Connection = sqlGeneralCommands.connectionString;
-                    sqlGeneralCommands.sqlCommand.CommandText = sqlQuery;
+                    sqlGeneralCommands.sqlCommand.CommandText = "update tables set serviceStatus = 1 where tableID = @tableId"; ;
 
                     sqlGeneralCommands.sqlCommand.Parameters.AddWithValue("@tableId", tableId);
 
@@ -97,7 +97,7 @@ namespace orderFollowing
                 using (sqlGeneralCommands.sqlCommand = new SqlCommand())
                 {
                     sqlGeneralCommands.sqlCommand.Connection = sqlGeneralCommands.connectionString;
-                    sqlGeneralCommands.sqlCommand.CommandText = sqlQuery;
+                    sqlGeneralCommands.sqlCommand.CommandText = "update TABLES set serviceStatus = 0 where tableID = @tableId";
 
                     sqlGeneralCommands.sqlCommand.Parameters.AddWithValue("@tableId", tableId);
 
