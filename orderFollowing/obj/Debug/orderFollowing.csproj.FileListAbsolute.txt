@@ -45,3 +45,4 @@ C:\Users\R\Desktop\VStudio projects\orderFollowing\Yeni klasör\orderFollowing\o
 C:\Users\R\Desktop\VStudio projects\orderFollowing\Yeni klasör\orderFollowing\obj\Debug\orderFollowing.csproj.CoreCompileInputs.cache
 C:\Users\R\Desktop\VStudio projects\orderFollowing\Yeni klasör\orderFollowing\obj\Debug\orderFollowing.exe
 C:\Users\R\Desktop\VStudio projects\orderFollowing\Yeni klasör\orderFollowing\obj\Debug\orderFollowing.pdb
+C:\Users\R\Desktop\VStudio projects\orderFollowing\Yeni klasör\orderFollowing\obj\Debug\orderFollowing.forms.ordersForm.resources

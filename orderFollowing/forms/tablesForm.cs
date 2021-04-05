@@ -13,12 +13,12 @@ namespace orderFollowing.forms
     public partial class tablesForm : Form
     {
         cTableOperations tableOperation;
-        cGetOrdersFromSql getOrders;
+        cGetOrdersOfTable getTableOrders;
         cGetDataFromSql getData;
         cInsertUpdateOrder newOrder;
         cBillOperations newBill;
         cGetTotalBill getBillTotal;
-
+        
         List<cCategories> categoryList;
 
         List<int> lstTableCapacities;
@@ -385,14 +385,14 @@ namespace orderFollowing.forms
 
         void loadTableOrders(string tableId)
         {
-            getOrders = new cGetOrdersFromSql();
-            getOrders.sqlQuery = "select orderID, productName as 'Product', Quantity, tableID as 'Table', orderStatus as 'Is Delivered', "
+            getTableOrders = new cGetOrdersOfTable();
+            getTableOrders.sqlQuery = "select orderID, productName as 'Product', Quantity, tableID as 'Table', orderStatus as 'Is Delivered', "
             + "staffNameSurname as 'Staff' from ORDERS inner join STAFFS on STAFFS.staffID = ORDERS.staffID "
             + "inner join PRODUCTS on PRODUCTS.productID = ORDERS.productID where tableID = @tableId and billId = @billId";
-            getOrders.tableId = tableId;
-            getOrders.billId = billId;
-            getOrders.GetOrdersFromSql();
-            dGridView.DataSource = getOrders.dataTable;
+            getTableOrders.tableId = tableId;
+            getTableOrders.billId = billId;
+            getTableOrders.GetOrdersFromSql();
+            dGridView.DataSource = getTableOrders.dataTable;
             dGridView.Columns["orderId"].Visible = false;
 
             writeTableNumber();
@@ -691,19 +691,19 @@ namespace orderFollowing.forms
         {
             LViewUndelivered.Items.Clear();
             LViewUndelivered.Visible = true;
-            getOrders = new cGetOrdersFromSql();
-            getOrders.sqlQuery = "select orderID, productName, orderStatus from ORDERS inner join PRODUCTS on "
+            getTableOrders = new cGetOrdersOfTable();
+            getTableOrders.sqlQuery = "select orderID, productName, orderStatus from ORDERS inner join PRODUCTS on "
             + "ORDERS.productID = PRODUCTS.productID where orderStatus = 0 and tableID = @tableId and billId = @billId";
-            getOrders.tableId = PBoxClicked.Tag.ToString();
-            getOrders.billId = billId;
-            getOrders.GetOrdersFromSql();
+            getTableOrders.tableId = PBoxClicked.Tag.ToString();
+            getTableOrders.billId = billId;
+            getTableOrders.GetOrdersFromSql();
 
             LViewUndelivered.View = View.Details;
             showUndeliveredOrders();
         }
         void showUndeliveredOrders()
         {
-            foreach (DataRow row in getOrders.dataTable.Rows)
+            foreach (DataRow row in getTableOrders.dataTable.Rows)
             {
                 ListViewItem listItem = new ListViewItem(row["orderID"].ToString());
                 listItem.SubItems.Add(row["productName"].ToString());
@@ -827,6 +827,8 @@ namespace orderFollowing.forms
         private void btnCloseOrderPanel_Click(object sender, EventArgs e)
         {
             pnlGeneral.Visible = false;
+            pnlChoseProduct.Visible = false;
+            isEditedOrInserted = true;
 
             LViewUndelivered.Visible = false;
             btnDeleteOrder.Visible = true;

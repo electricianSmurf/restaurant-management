@@ -48,9 +48,10 @@
     <Compile Include="classes\cBillOperations.cs" />
     <Compile Include="classes\cCategories.cs" />
     <Compile Include="classes\cGetTotalBill.cs" />
+    <Compile Include="classes\cOrderOperations.cs" />
     <Compile Include="classes\cProducts.cs" />
     <Compile Include="classes\cGetDataFromSql.cs" />
-    <Compile Include="classes\cGetOrdersFromSql.cs" />
+    <Compile Include="classes\cGetOrdersOfTable.cs" />
     <Compile Include="classes\cInsertUpdateOrder.cs" />
     <Compile Include="classes\cSqlGeneralCommands.cs" />
     <Compile Include="classes\cInsUpdStaffIntoSql.cs" />
@@ -120,6 +121,9 @@
     </Compile>
     <EmbeddedResource Include="forms\loginForm.resx">
       <DependentUpon>loginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\ordersForm.resx">
+      <DependentUpon>ordersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\staffsForm.resx">
       <DependentUpon>staffsForm.cs</DependentUpon>
@@ -233,6 +237,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="images\order notice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\new order.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\preparing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\ready.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\delivered.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\new order1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -25,7 +25,6 @@ namespace orderFollowing
         {
             getData.sqlQuery = "select staffNameSurname, staffUserName, staffPassword FROM STAFFS where staffStatus = 1";
             getData.GetDataFromSql();
-            dataGridView1.DataSource = getData.dataTable;
             for (int row = 0; row < getData.dataTable.Rows.Count; row++)
             {
                 CBoxUserNames.Items.Add(getData.dataTable.Rows[row]["staffUserName"]);
