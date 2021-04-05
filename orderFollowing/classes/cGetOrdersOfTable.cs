@@ -9,7 +9,7 @@ using System.Data;
 using System.Windows.Forms;
 namespace orderFollowing
 {
-    class cGetOrdersFromSql
+    class cGetOrdersOfTable
     {
         cSqlGeneralCommands generalSqlCommands = new cSqlGeneralCommands();
         public string sqlQuery;

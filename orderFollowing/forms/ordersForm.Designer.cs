@@ -30,13 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ordersForm));
             this.btnDeliveredOrders = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dGridView = new System.Windows.Forms.DataGridView();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnReadyOrders = new System.Windows.Forms.Button();
             this.btnNewOrders = new System.Windows.Forms.Button();
             this.btnPreparingOrders = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDeliveredOrders
@@ -54,13 +56,15 @@
             this.btnDeliveredOrders.UseVisualStyleBackColor = false;
             this.btnDeliveredOrders.Click += new System.EventHandler(this.btnDeliveredOrders_Click);
             // 
-            // dataGridView1
+            // dGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 70);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(725, 304);
-            this.dataGridView1.TabIndex = 27;
+            this.dGridView.BackgroundColor = System.Drawing.Color.Khaki;
+            this.dGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dGridView.Cursor = System.Windows.Forms.Cursors.Default;
+            this.dGridView.Location = new System.Drawing.Point(10, 70);
+            this.dGridView.Name = "dGridView";
+            this.dGridView.Size = new System.Drawing.Size(725, 304);
+            this.dGridView.TabIndex = 27;
             // 
             // lblTitle
             // 
@@ -133,25 +137,46 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(152, 406);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "label1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(152, 431);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "label2";
+            // 
             // ordersForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::orderFollowing.Properties.Resources.bg_image;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(745, 457);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnPreparingOrders);
             this.Controls.Add(this.btnNewOrders);
             this.Controls.Add(this.btnReadyOrders);
             this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dGridView);
             this.Controls.Add(this.btnDeliveredOrders);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ordersForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Orders Form";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.ordersForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,11 +185,13 @@
         #endregion
 
         private System.Windows.Forms.Button btnDeliveredOrders;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dGridView;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnReadyOrders;
         private System.Windows.Forms.Button btnNewOrders;
         private System.Windows.Forms.Button btnPreparingOrders;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

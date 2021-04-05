@@ -48,9 +48,10 @@
     <Compile Include="classes\cBillOperations.cs" />
     <Compile Include="classes\cCategories.cs" />
     <Compile Include="classes\cGetTotalBill.cs" />
+    <Compile Include="classes\cOrderOperations.cs" />
     <Compile Include="classes\cProducts.cs" />
     <Compile Include="classes\cGetDataFromSql.cs" />
-    <Compile Include="classes\cGetOrdersFromSql.cs" />
+    <Compile Include="classes\cGetOrdersOfTable.cs" />
     <Compile Include="classes\cInsertUpdateOrder.cs" />
     <Compile Include="classes\cSqlGeneralCommands.cs" />
     <Compile Include="classes\cInsUpdStaffIntoSql.cs" />
