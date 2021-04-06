@@ -36,14 +36,15 @@ namespace orderFollowing.forms
         void showDeliveredOrders()
         {
             showOrder = new cOrderOperations();
-            showOrder.sqlQuery = "select staffNameSurname as 'Staff', productName as 'Product', ORDERS.tableID as 'Table No', ORDERS.billID as 'Bill No', "
-            + "Quantity, orderStatus as 'Is Delivered', openingTime as 'Bill Time' from ORDERS inner join STAFFS on ORDERS.staffID = STAFFS.staffID "
+            showOrder.sqlQuery = "select staffNameSurname as 'Staff', productName as 'Product', ORDERS.tableID as 'Table No', "
+            + "ORDERS.billID as 'Bill No', Quantity, case when orderStatus = 1 then 'Delivered' else 'Undelivered' end as 'Delivery Status', "
+            + "openingTime as 'Bill Time' from ORDERS inner join STAFFS on ORDERS.staffID = STAFFS.staffID "
             + "inner join PRODUCTS on ORDERS.productID = PRODUCTS.productID inner join BILLS on ORDERS.billID = BILLS.billID "
             + "where orderStatus = 1 and openingTime between  @startTime and @finishTime";
             
             showOrder.billStartTime = DateTime.Now.Date;
             showOrder.billFinishTime = DateTime.Now.Date.AddHours(23).AddMinutes(59).AddSeconds(59);
-            showOrder.showDeliveredOrders();
+            showOrder.getDataFromOrders();
 
             dGridView.DataSource = showOrder.dataTable;
         }
@@ -71,13 +72,46 @@ namespace orderFollowing.forms
         private void btnPreparingOrders_Click(object sender, EventArgs e)
         {
             lblTitle.Text = "Orders In Making";
+            showPreparingOrders();
+        }
+
+        void showPreparingOrders()
+        {
+            showOrder = new cOrderOperations();
+
+            showOrder.sqlQuery = "select staffNameSurname as 'Staff', productName as 'Product', Quantity, "
+            + "case when preparationStatus is NULL then 'New Order' when preparationStatus = 1 then 'Ready' else 'Preparing' end "
+            + "as 'Preparation Status' from ORDERS inner join STAFFS on ORDERS.staffID = STAFFS.staffID inner join "
+            + "PRODUCTS on ORDERS.productID = PRODUCTS.productID inner join BILLS on ORDERS.billID = BILLS.billID "
+            + "where orderStatus = 0 and preparationStatus = 0 and openingTime between @startTime and @finishTime";
+
+            showOrder.billStartTime = DateTime.Now.Date;
+            showOrder.billFinishTime = DateTime.Now.Date.AddHours(23).AddMinutes(59).AddSeconds(59);
+            showOrder.getDataFromOrders();
+
+            dGridView.DataSource = showOrder.dataTable;
         }
 
         private void btnReadyOrders_Click(object sender, EventArgs e)
         {
             lblTitle.Text = "Ready Orders";
+            showReadyOrders();
         }
+        void showReadyOrders()
+        {
+            showOrder = new cOrderOperations();
+            showOrder.sqlQuery = "select staffNameSurname as 'Staff', productName as 'Product', Quantity, "
+            + "case when preparationStatus is NULL then 'New Order' when preparationStatus = 1 then 'Ready' else 'Preparing' end "
+            + "as 'Preparation Status' from ORDERS inner join STAFFS on ORDERS.staffID = STAFFS.staffID inner join "
+            + "PRODUCTS on ORDERS.productID = PRODUCTS.productID inner join BILLS on ORDERS.billID = BILLS.billID "
+            + "where orderStatus = 0 and preparationStatus = 1 and openingTime between @startTime and @finishTime";
 
+            showOrder.billStartTime = DateTime.Now.Date;
+            showOrder.billFinishTime = DateTime.Now.Date.AddHours(23).AddMinutes(59).AddSeconds(59);
+            showOrder.getDataFromOrders();
+
+            dGridView.DataSource = showOrder.dataTable;
+        }
         private void btnDeliveredOrders_Click(object sender, EventArgs e)
         {
             lblTitle.Text = "Delivered Orders";

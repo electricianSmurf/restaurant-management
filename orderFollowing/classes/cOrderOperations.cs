@@ -21,7 +21,7 @@ namespace orderFollowing
         private SqlDataAdapter dataAdapter;
         public DataTable dataTable = new DataTable();
 
-        public void showDeliveredOrders()
+        public void getDataFromOrders()
         {
             try
             {
