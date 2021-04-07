@@ -57,6 +57,7 @@
     <Compile Include="classes\cInsUpdStaffIntoSql.cs" />
     <Compile Include="classes\cStaffActivities.cs" />
     <Compile Include="classes\cTableOperations.cs" />
+    <Compile Include="classes\cUpdatePreparationStatus.cs" />
     <Compile Include="forms\billsForm.cs">
       <SubType>Form</SubType>
     </Compile>

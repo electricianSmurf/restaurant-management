@@ -65,6 +65,7 @@
             this.dGridView.Name = "dGridView";
             this.dGridView.Size = new System.Drawing.Size(725, 304);
             this.dGridView.TabIndex = 27;
+            this.dGridView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dGridView_CellMouseDoubleClick);
             // 
             // lblTitle
             // 
