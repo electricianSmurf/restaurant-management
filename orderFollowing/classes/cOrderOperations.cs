@@ -17,7 +17,7 @@ namespace orderFollowing
 
         public DateTime billStartTime;
         public DateTime billFinishTime;
-
+        
         private SqlDataAdapter dataAdapter;
         public DataTable dataTable = new DataTable();
 
