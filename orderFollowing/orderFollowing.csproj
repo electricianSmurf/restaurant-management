@@ -120,6 +120,9 @@
     <Compile Include="forms\mainForm.Designer.cs">
       <DependentUpon>mainForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="forms\billsForm.resx">
+      <DependentUpon>billsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\loginForm.resx">
       <DependentUpon>loginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -253,6 +256,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="images\new order1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\open bill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\closed bill.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
