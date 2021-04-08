@@ -24,8 +24,8 @@ namespace orderFollowing.forms
 
         private void ordersForm_Load(object sender, EventArgs e)
         {
-            showDeliveredOrders();
             dGridViewSettings();
+            showDeliveredOrders();
             btnClickedButton = btnDeliveredOrders;
         }
 
@@ -51,7 +51,14 @@ namespace orderFollowing.forms
 
             dGridView.DataSource = showOrder.dataTable;
         }
-       
+
+        private void btnDeliveredOrders_Click(object sender, EventArgs e)
+        {
+            lblTitle.Text = "Delivered Orders";
+            btnClickedButton = btnDeliveredOrders;
+            showDeliveredOrders();
+        }
+
         private void btnNewOrders_Click(object sender, EventArgs e)
         {
             lblTitle.Text = "New Orders";
@@ -130,21 +137,6 @@ namespace orderFollowing.forms
             hideDGridViewColumns();
         }
 
-        private void btnDeliveredOrders_Click(object sender, EventArgs e)
-        {
-            lblTitle.Text = "Delivered Orders";
-            btnClickedButton = btnDeliveredOrders;
-            showDeliveredOrders();
-        }
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            mainForm mainForm = new mainForm();
-            mainForm.ShowDialog();
-            this.Close();
-        }
-
         private void dGridView_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if ((e.RowIndex >= 0 && e.RowIndex < dGridView.Rows.Count - 1) && btnClickedButton != btnDeliveredOrders && btnClickedButton != btnReadyOrders)
@@ -154,7 +146,6 @@ namespace orderFollowing.forms
                 {
                     int billID = Convert.ToInt32(dGridView.CurrentRow.Cells["billID"].Value);
                     int orderID = Convert.ToInt32(dGridView.CurrentRow.Cells["orderID"].Value);
-                    label1.Text = "bill " + billID.ToString() + " order " + orderID.ToString();
                     commitUpdate(billID, orderID);
                 }
             }            
@@ -194,6 +185,14 @@ namespace orderFollowing.forms
 
                 showPreparingOrders();
             }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            mainForm mainForm = new mainForm();
+            mainForm.ShowDialog();
+            this.Close();
         }
     }
 }
