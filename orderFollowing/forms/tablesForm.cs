@@ -692,8 +692,10 @@ namespace orderFollowing.forms
             LViewUndelivered.Items.Clear();
             LViewUndelivered.Visible = true;
             getTableOrders = new cGetOrdersOfTable();
-            getTableOrders.sqlQuery = "select orderID, productName, orderStatus from ORDERS inner join PRODUCTS on "
-            + "ORDERS.productID = PRODUCTS.productID where orderStatus = 0 and tableID = @tableId and billId = @billId";
+            getTableOrders.sqlQuery = "select orderID, productName, case when orderStatus = 0 then 'Undelivered' else 'Delivered' end "
+            + "as 'orderStatus', case when preparationStatus is NULL then 'New Order' when preparationStatus = 0 then 'Preparing' "
+            + "else 'Ready' end as 'preparationStatus' from ORDERS inner join PRODUCTS on ORDERS.productID = PRODUCTS.productID "
+            + "where orderStatus = 0 and tableID = @tableId and billId = @billId";
             getTableOrders.tableId = PBoxClicked.Tag.ToString();
             getTableOrders.billId = billId;
             getTableOrders.GetOrdersFromSql();
@@ -708,6 +710,7 @@ namespace orderFollowing.forms
                 ListViewItem listItem = new ListViewItem(row["orderID"].ToString());
                 listItem.SubItems.Add(row["productName"].ToString());
                 listItem.SubItems.Add(row["orderStatus"].ToString());
+                listItem.SubItems.Add(row["preparationStatus"].ToString());
                 LViewUndelivered.Items.Add(listItem);
             }
         }

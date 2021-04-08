@@ -63,6 +63,7 @@
             this.btnCloseAddPanel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnRemoveTable = new System.Windows.Forms.Button();
+            this.CHpreparation = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnlGeneral.SuspendLayout();
             this.pnlChoseProduct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBoxWarning)).BeginInit();
@@ -118,12 +119,13 @@
             this.LViewUndelivered.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.CHorderId,
             this.CHproduct,
-            this.CHstatus});
+            this.CHstatus,
+            this.CHpreparation});
             this.LViewUndelivered.FullRowSelect = true;
             this.LViewUndelivered.HideSelection = false;
-            this.LViewUndelivered.Location = new System.Drawing.Point(315, 122);
+            this.LViewUndelivered.Location = new System.Drawing.Point(299, 122);
             this.LViewUndelivered.Name = "LViewUndelivered";
-            this.LViewUndelivered.Size = new System.Drawing.Size(181, 100);
+            this.LViewUndelivered.Size = new System.Drawing.Size(226, 100);
             this.LViewUndelivered.TabIndex = 25;
             this.LViewUndelivered.UseCompatibleStateImageBehavior = false;
             this.LViewUndelivered.Visible = false;
@@ -141,8 +143,8 @@
             // 
             // CHstatus
             // 
-            this.CHstatus.Text = "Status";
-            this.CHstatus.Width = 80;
+            this.CHstatus.Text = "Delivery";
+            this.CHstatus.Width = 70;
             // 
             // btnPendingOrders
             // 
@@ -471,6 +473,11 @@
             this.btnRemoveTable.UseVisualStyleBackColor = false;
             this.btnRemoveTable.Click += new System.EventHandler(this.btnRemoveTable_Click);
             // 
+            // CHpreparation
+            // 
+            this.CHpreparation.Text = "Preparation";
+            this.CHpreparation.Width = 70;
+            // 
             // tablesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -536,5 +543,6 @@
         private System.Windows.Forms.ColumnHeader CHstatus;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ColumnHeader CHpreparation;
     }
 }
