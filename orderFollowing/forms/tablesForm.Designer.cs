@@ -36,6 +36,7 @@
             this.CHorderId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.CHproduct = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.CHstatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.CHpreparation = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnPendingOrders = new System.Windows.Forms.Button();
             this.btnDeleteOrder = new System.Windows.Forms.Button();
             this.btnUpdateOrder = new System.Windows.Forms.Button();
@@ -53,7 +54,6 @@
             this.dGridView = new System.Windows.Forms.DataGridView();
             this.btnCloseGeneralPanel = new System.Windows.Forms.Button();
             this.btnNewOrder = new System.Windows.Forms.Button();
-            this.btnCloseAccount = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnAddTable = new System.Windows.Forms.Button();
             this.pnlAddTable = new System.Windows.Forms.Panel();
@@ -63,7 +63,6 @@
             this.btnCloseAddPanel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnRemoveTable = new System.Windows.Forms.Button();
-            this.CHpreparation = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnlGeneral.SuspendLayout();
             this.pnlChoseProduct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBoxWarning)).BeginInit();
@@ -84,7 +83,6 @@
             this.pnlGeneral.Controls.Add(this.dGridView);
             this.pnlGeneral.Controls.Add(this.btnCloseGeneralPanel);
             this.pnlGeneral.Controls.Add(this.btnNewOrder);
-            this.pnlGeneral.Controls.Add(this.btnCloseAccount);
             this.pnlGeneral.Location = new System.Drawing.Point(112, 93);
             this.pnlGeneral.Name = "pnlGeneral";
             this.pnlGeneral.Size = new System.Drawing.Size(526, 271);
@@ -146,6 +144,11 @@
             this.CHstatus.Text = "Delivery";
             this.CHstatus.Width = 70;
             // 
+            // CHpreparation
+            // 
+            this.CHpreparation.Text = "Preparation";
+            this.CHpreparation.Width = 70;
+            // 
             // btnPendingOrders
             // 
             this.btnPendingOrders.BackColor = System.Drawing.SystemColors.Control;
@@ -154,7 +157,7 @@
             this.btnPendingOrders.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPendingOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPendingOrders.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnPendingOrders.Location = new System.Drawing.Point(371, 221);
+            this.btnPendingOrders.Location = new System.Drawing.Point(460, 221);
             this.btnPendingOrders.Name = "btnPendingOrders";
             this.btnPendingOrders.Size = new System.Drawing.Size(66, 50);
             this.btnPendingOrders.TabIndex = 25;
@@ -352,20 +355,6 @@
             this.btnNewOrder.UseVisualStyleBackColor = false;
             this.btnNewOrder.Click += new System.EventHandler(this.btnNewOrder_Click);
             // 
-            // btnCloseAccount
-            // 
-            this.btnCloseAccount.BackColor = System.Drawing.Color.Cyan;
-            this.btnCloseAccount.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCloseAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCloseAccount.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnCloseAccount.Location = new System.Drawing.Point(460, 221);
-            this.btnCloseAccount.Name = "btnCloseAccount";
-            this.btnCloseAccount.Size = new System.Drawing.Size(66, 50);
-            this.btnCloseAccount.TabIndex = 0;
-            this.btnCloseAccount.Text = "Close Account";
-            this.btnCloseAccount.UseVisualStyleBackColor = false;
-            this.btnCloseAccount.Click += new System.EventHandler(this.btnCloseAccount_Click);
-            // 
             // btnBack
             // 
             this.btnBack.BackColor = System.Drawing.Color.Transparent;
@@ -473,11 +462,6 @@
             this.btnRemoveTable.UseVisualStyleBackColor = false;
             this.btnRemoveTable.Click += new System.EventHandler(this.btnRemoveTable_Click);
             // 
-            // CHpreparation
-            // 
-            this.CHpreparation.Text = "Preparation";
-            this.CHpreparation.Width = 70;
-            // 
             // tablesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -510,7 +494,6 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlGeneral;
-        private System.Windows.Forms.Button btnCloseAccount;
         private System.Windows.Forms.Button btnNewOrder;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.DataGridView dGridView;
