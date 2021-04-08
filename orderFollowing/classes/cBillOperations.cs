@@ -120,5 +120,27 @@ namespace orderFollowing
                 MessageBox.Show("Connection Failed!");
             }
         }
+        public void getAllBills()
+        {
+            sqlGeneralCommands.connectionString.Open();
+            sqlGeneralCommands.sqlCommand = new SqlCommand(sqlQuery, sqlGeneralCommands.connectionString);
+            sqlGeneralCommands.sqlCommand.Parameters.AddWithValue("@open", openingTime);
+            sqlGeneralCommands.sqlCommand.Parameters.AddWithValue("@closed", closingTime);
+            dataTable = new DataTable();
+            dataAdapter = new SqlDataAdapter(sqlGeneralCommands.sqlCommand);
+            dataAdapter.Fill(dataTable);
+            sqlGeneralCommands.connectionString.Close();
+
+            try
+            {
+                sqlGeneralCommands.connectionString.Open();
+                sqlGeneralCommands.sqlCommand.ExecuteNonQuery();
+                sqlGeneralCommands.connectionString.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Connection Failed!");
+            }
+        }
     }
 }

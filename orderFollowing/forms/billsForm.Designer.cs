@@ -34,6 +34,7 @@
             this.btnClosedBills = new System.Windows.Forms.Button();
             this.btnOpenBills = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,12 +105,22 @@
             this.lblTitle.TabIndex = 37;
             this.lblTitle.Text = "Open Bills";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(310, 411);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 38;
+            this.label1.Text = "label1";
+            // 
             // billsForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::orderFollowing.Properties.Resources.bg_image;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(745, 457);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnOpenBills);
             this.Controls.Add(this.btnClosedBills);
@@ -120,6 +131,7 @@
             this.Name = "billsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "billsForm";
+            this.Load += new System.EventHandler(this.billsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -133,5 +145,6 @@
         private System.Windows.Forms.Button btnClosedBills;
         private System.Windows.Forms.Button btnOpenBills;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Label label1;
     }
 }
