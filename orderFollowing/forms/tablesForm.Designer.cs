@@ -63,6 +63,7 @@
             this.btnCloseAddPanel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnRemoveTable = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             this.pnlGeneral.SuspendLayout();
             this.pnlChoseProduct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBoxWarning)).BeginInit();
@@ -462,6 +463,15 @@
             this.btnRemoveTable.UseVisualStyleBackColor = false;
             this.btnRemoveTable.Click += new System.EventHandler(this.btnRemoveTable_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(222, 406);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 24;
+            this.label7.Text = "label7";
+            // 
             // tablesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -469,6 +479,7 @@
             this.BackgroundImage = global::orderFollowing.Properties.Resources.bg_image;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(745, 457);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.btnRemoveTable);
             this.Controls.Add(this.pnlAddTable);
             this.Controls.Add(this.btnAddTable);
@@ -488,6 +499,7 @@
             this.pnlAddTable.ResumeLayout(false);
             this.pnlAddTable.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -527,5 +539,6 @@
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ColumnHeader CHpreparation;
+        private System.Windows.Forms.Label label7;
     }
 }

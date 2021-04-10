@@ -39,12 +39,14 @@ namespace orderFollowing.forms
         public tablesForm()
         {
             InitializeComponent();
-
-            checkIsAdminOnline();
-
+            
             getTables();
             getExistingTableCapacities();
             fillCBoxCapacity();
+
+            checkIsAdminOnline();
+
+            setExistingTableRowNumber();
         }
 
         void checkIsAdminOnline()
@@ -82,6 +84,18 @@ namespace orderFollowing.forms
             CBoxTableCapacity.Items.Add(3);
             CBoxTableCapacity.Items.Add(4);
             CBoxTableCapacity.Items.Add(5);
+        }
+
+        void setExistingTableRowNumber()
+        {
+            for (int row = 0; row < getData.dataTable.Rows.Count; row++)
+            {
+                tableOperation = new cTableOperations();
+                tableOperation.tableId = Convert.ToInt32(getData.dataTable.Rows[row]["tableID"]).ToString();
+                tableOperation.rowNumb = (row + 1);
+
+                tableOperation.updateTableRowNumber();
+            }
         }
 
         private void tablesForm_Load(object sender, EventArgs e)

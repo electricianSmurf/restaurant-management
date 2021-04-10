@@ -15,6 +15,7 @@ namespace orderFollowing
         public bool tableStatus;
         public bool serviceStatus;
         public string tableId;
+        public int rowNumb;
 
         public void addNewTable()
         {
@@ -99,6 +100,32 @@ namespace orderFollowing
                     sqlGeneralCommands.sqlCommand.Connection = sqlGeneralCommands.connectionString;
                     sqlGeneralCommands.sqlCommand.CommandText = "update TABLES set serviceStatus = 0 where tableID = @tableId";
 
+                    sqlGeneralCommands.sqlCommand.Parameters.AddWithValue("@tableId", tableId);
+
+                    try
+                    {
+                        sqlGeneralCommands.connectionString.Open();
+                        sqlGeneralCommands.sqlCommand.ExecuteNonQuery();
+                        sqlGeneralCommands.connectionString.Close();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Connection Failed!");
+                    }
+                }
+            }
+        }
+        
+        public void updateTableRowNumber()
+        {
+            using (sqlGeneralCommands.connectionString)
+            {
+                using (sqlGeneralCommands.sqlCommand = new SqlCommand())
+                {
+                    sqlGeneralCommands.sqlCommand.Connection = sqlGeneralCommands.connectionString;
+                    sqlGeneralCommands.sqlCommand.CommandText = "update TABLES set rowNumber = @rowNumb where tableID = @tableId";
+
+                    sqlGeneralCommands.sqlCommand.Parameters.AddWithValue("@rowNumb", rowNumb);
                     sqlGeneralCommands.sqlCommand.Parameters.AddWithValue("@tableId", tableId);
 
                     try
