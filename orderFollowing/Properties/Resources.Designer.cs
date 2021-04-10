@@ -193,6 +193,16 @@ namespace orderFollowing.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap closed_bill {
+            get {
+                object obj = ResourceManager.GetObject("closed bill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap delivered {
             get {
                 object obj = ResourceManager.GetObject("delivered", resourceCulture);
@@ -266,6 +276,16 @@ namespace orderFollowing.Properties {
         internal static System.Drawing.Bitmap new_order1 {
             get {
                 object obj = ResourceManager.GetObject("new order1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap open_bill {
+            get {
+                object obj = ResourceManager.GetObject("open bill", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

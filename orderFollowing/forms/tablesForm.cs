@@ -39,12 +39,14 @@ namespace orderFollowing.forms
         public tablesForm()
         {
             InitializeComponent();
-
-            checkIsAdminOnline();
-
+            
             getTables();
             getExistingTableCapacities();
             fillCBoxCapacity();
+
+            checkIsAdminOnline();
+
+            setExistingTableRowNumber();
         }
 
         void checkIsAdminOnline()
@@ -82,6 +84,18 @@ namespace orderFollowing.forms
             CBoxTableCapacity.Items.Add(3);
             CBoxTableCapacity.Items.Add(4);
             CBoxTableCapacity.Items.Add(5);
+        }
+
+        void setExistingTableRowNumber()
+        {
+            for (int row = 0; row < getData.dataTable.Rows.Count; row++)
+            {
+                tableOperation = new cTableOperations();
+                tableOperation.tableId = Convert.ToInt32(getData.dataTable.Rows[row]["tableID"]).ToString();
+                tableOperation.rowNumb = (row + 1);
+
+                tableOperation.updateTableRowNumber();
+            }
         }
 
         private void tablesForm_Load(object sender, EventArgs e)
@@ -371,7 +385,6 @@ namespace orderFollowing.forms
             btnNewOrder.Visible = true;
             btnUpdateOrder.Visible = true;
             btnDeleteOrder.Visible = true;
-            btnCloseAccount.Visible = true;
         }
 
         void getBillId()
@@ -461,7 +474,6 @@ namespace orderFollowing.forms
             dGridView.Visible = false;
             btnDeleteOrder.Visible = false;
             btnUpdateOrder.Visible = false;
-            btnCloseAccount.Visible = false;
 
             pnlChoseProduct.Visible = true;
         }
@@ -612,7 +624,6 @@ namespace orderFollowing.forms
         {
             btnNewOrder.Visible = false;
             btnDeleteOrder.Visible = false;
-            btnCloseAccount.Visible = false;
 
             dGridView.Visible = true;
             pnlChoseProduct.Visible = true;
@@ -650,7 +661,6 @@ namespace orderFollowing.forms
             btnUpdateOrder.Visible = true;
             btnDeleteOrder.Visible = true;
             btnNewOrder.Visible = true;
-            btnCloseAccount.Visible = true;
             pnlChoseProduct.Visible = false;
             isUpdate1stClick = true;
             isEditedOrInserted = true;
@@ -789,42 +799,6 @@ namespace orderFollowing.forms
             {
                 LViewUndelivered.Items.Remove(item);
             }
-        }
-
-        private void btnCloseAccount_Click(object sender, EventArgs e)
-        {
-            if (!btnPendingOrders.Visible)//means that there isn't any undelivered order
-            {
-                string message = "Do you want to close this account?";
-                DialogResult result = MessageBox.Show(message, "Close Account", MessageBoxButtons.OKCancel);
-                if (result == DialogResult.OK)
-                {
-                    closeTableAccount();
-                    closeTableBill();
-                    getTotalBill();
-                    pnlGeneral.Visible = false;
-                    PBoxClicked.BackColor = closeTableColor;
-                }
-            }
-            else
-            {
-                MessageBox.Show("Request Failed! There's undelivered item!");
-            }
-        }
-        void closeTableAccount()
-        {
-            tableOperation = new cTableOperations();
-            tableOperation.tableId = PBoxClicked.Tag.ToString();
-            tableOperation.closeAccount();
-        }
-        void closeTableBill()
-        {
-            newBill = new cBillOperations();
-            newBill.sqlQuery = "update BILLS set closingTime = @closingTime, billStatus = 0 where "
-            + "billID = @billId";
-            newBill.closingTime = DateTime.Now;
-            newBill.billId = billId;
-            newBill.closeBill();
         }
 
         private void btnCloseOrderPanel_Click(object sender, EventArgs e)
