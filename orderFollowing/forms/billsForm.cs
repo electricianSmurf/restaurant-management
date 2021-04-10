@@ -37,14 +37,16 @@ namespace orderFollowing.forms
         void showOpenBills()
         {
             bill = new cBillOperations();
-            bill.sqlQuery = "select billID as 'Bill No', tableID as 'Table No', Total, openingTime as 'Opening Time', "
-            + "case when closingTime is NULL then '---' end as 'Closing Time' from BILLS where billStatus = 1 and "
-            + "closingTime is NULL and openingTime between @open and @closed order by billID asc";
+            bill.sqlQuery = "select billID as 'Bill No', BILLS.tableID, rowNumber as 'Table No', Total, openingTime as 'Opening Time', "
+            + "case when closingTime is NULL then '---' end as 'Closing Time' from BILLS inner join TABLES on "
+            + "BILLS.tableID = TABLES.tableID where billStatus = 1 and closingTime is NULL "
+            + "and openingTime between @open and @closed order by billID asc";
 
             bill.openingTime = DateTime.Now.Date;
             bill.closingTime = DateTime.Now.Date.AddHours(23).AddMinutes(59).AddSeconds(59);
             bill.getAllBills();
             dGridView.DataSource = bill.dataTable;
+            dGridView.Columns["tableID"].Visible = false;
         }
 
         private void btnOpenBills_Click(object sender, EventArgs e)
@@ -62,14 +64,15 @@ namespace orderFollowing.forms
         void showClosedBills()
         {
             bill = new cBillOperations();
-            bill.sqlQuery = "select billID as 'Bill No', tableID as 'Table No', Total, openingTime as 'Opening Time', "
-            + "closingTime as 'Closing Time' from BILLS where billStatus = 0 and openingTime between "
-            + "@open and @closed order by billID desc";
+            bill.sqlQuery = "select billID as 'Bill No', BILLS.tableID, rowNumber as 'Table No', Total, openingTime as 'Opening Time', "
+            + "closingTime as 'Closing Time' from BILLS inner join TABLES on BILLS.tableID = TABLES.tableID where billStatus = 0 "
+            + "and openingTime between @open and @closed order by billID desc";
 
             bill.openingTime = DateTime.Now.Date;
             bill.closingTime = DateTime.Now.Date.AddHours(23).AddMinutes(59).AddSeconds(59);
             bill.getAllBills();
             dGridView.DataSource = bill.dataTable;
+            dGridView.Columns["tableID"].Visible = false;
         }
 
         private void dGridView_DoubleClick(object sender, EventArgs e)
@@ -79,8 +82,8 @@ namespace orderFollowing.forms
                 DialogResult result = MessageBox.Show("Are you sure to close this account?", "Close Account", MessageBoxButtons.OKCancel);
                 if (result == DialogResult.OK)
                 {
-                    closeTableBill();
                     closeTableAccount();
+                    closeTableBill();
                     showOpenBills();
                 }
             }
@@ -92,14 +95,13 @@ namespace orderFollowing.forms
             bill.sqlQuery = "update BILLS set closingTime = @closingTime, billStatus = 0 where billID = @billId";
             bill.closingTime = DateTime.Now;
             bill.billId = Convert.ToInt32(dGridView.CurrentRow.Cells["Bill No"].Value);
-            label1.Text = bill.billId.ToString();
             bill.closeBill();
         }
 
         void closeTableAccount()
         {
             table = new cTableOperations();
-            table.tableId = dGridView.CurrentRow.Cells["Table No"].Value.ToString();
+            table.tableId = dGridView.CurrentRow.Cells["tableID"].Value.ToString();
             table.closeAccount();
         }
 
