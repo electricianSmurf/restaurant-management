@@ -129,6 +129,9 @@
     <EmbeddedResource Include="forms\ordersForm.resx">
       <DependentUpon>ordersForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\paymentsForm.resx">
+      <DependentUpon>paymentsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\staffsForm.resx">
       <DependentUpon>staffsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -262,6 +265,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="images\closed bill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\add credit card.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\payment types.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\all payments.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\organized.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -16,5 +16,15 @@ namespace orderFollowing.forms
         {
             InitializeComponent();
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnShowAllPayments_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
