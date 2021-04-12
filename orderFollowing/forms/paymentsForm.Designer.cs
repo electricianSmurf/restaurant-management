@@ -34,8 +34,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pnlAddPType = new System.Windows.Forms.Panel();
             this.btnAddPaymentType = new System.Windows.Forms.Button();
-            this.btnShowAddPanel = new System.Windows.Forms.Button();
-            this.btnShowAllPayments = new System.Windows.Forms.Button();
+            this.btnGnrlShowAddPanel = new System.Windows.Forms.Button();
+            this.btnGnrlShowAllPayments = new System.Windows.Forms.Button();
             this.dGridView = new System.Windows.Forms.DataGridView();
             this.btnOrganizedPayments = new System.Windows.Forms.Button();
             this.btnAllPayments = new System.Windows.Forms.Button();
@@ -103,39 +103,41 @@
             this.btnAddPaymentType.Size = new System.Drawing.Size(89, 82);
             this.btnAddPaymentType.TabIndex = 38;
             this.btnAddPaymentType.UseVisualStyleBackColor = false;
+            this.btnAddPaymentType.Click += new System.EventHandler(this.btnAddPaymentType_Click);
             // 
-            // btnShowAddPanel
+            // btnGnrlShowAddPanel
             // 
-            this.btnShowAddPanel.BackColor = System.Drawing.Color.Brown;
-            this.btnShowAddPanel.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnShowAddPanel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.btnShowAddPanel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
-            this.btnShowAddPanel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnShowAddPanel.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnShowAddPanel.ForeColor = System.Drawing.Color.White;
-            this.btnShowAddPanel.Location = new System.Drawing.Point(532, 0);
-            this.btnShowAddPanel.Name = "btnShowAddPanel";
-            this.btnShowAddPanel.Size = new System.Drawing.Size(106, 54);
-            this.btnShowAddPanel.TabIndex = 39;
-            this.btnShowAddPanel.Text = "Add New Payment Type";
-            this.btnShowAddPanel.UseVisualStyleBackColor = false;
+            this.btnGnrlShowAddPanel.BackColor = System.Drawing.Color.Brown;
+            this.btnGnrlShowAddPanel.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnGnrlShowAddPanel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btnGnrlShowAddPanel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
+            this.btnGnrlShowAddPanel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGnrlShowAddPanel.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnGnrlShowAddPanel.ForeColor = System.Drawing.Color.White;
+            this.btnGnrlShowAddPanel.Location = new System.Drawing.Point(639, 0);
+            this.btnGnrlShowAddPanel.Name = "btnGnrlShowAddPanel";
+            this.btnGnrlShowAddPanel.Size = new System.Drawing.Size(106, 54);
+            this.btnGnrlShowAddPanel.TabIndex = 39;
+            this.btnGnrlShowAddPanel.Text = "Add New Payment Type";
+            this.btnGnrlShowAddPanel.UseVisualStyleBackColor = false;
+            this.btnGnrlShowAddPanel.Click += new System.EventHandler(this.btnGnrlShowAddPanel_Click);
             // 
-            // btnShowAllPayments
+            // btnGnrlShowAllPayments
             // 
-            this.btnShowAllPayments.BackColor = System.Drawing.Color.Brown;
-            this.btnShowAllPayments.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnShowAllPayments.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.btnShowAllPayments.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
-            this.btnShowAllPayments.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnShowAllPayments.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnShowAllPayments.ForeColor = System.Drawing.Color.White;
-            this.btnShowAllPayments.Location = new System.Drawing.Point(639, 0);
-            this.btnShowAllPayments.Name = "btnShowAllPayments";
-            this.btnShowAllPayments.Size = new System.Drawing.Size(106, 54);
-            this.btnShowAllPayments.TabIndex = 40;
-            this.btnShowAllPayments.Text = "Show Payments";
-            this.btnShowAllPayments.UseVisualStyleBackColor = false;
-            this.btnShowAllPayments.Click += new System.EventHandler(this.btnShowAllPayments_Click);
+            this.btnGnrlShowAllPayments.BackColor = System.Drawing.Color.Brown;
+            this.btnGnrlShowAllPayments.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnGnrlShowAllPayments.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btnGnrlShowAllPayments.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
+            this.btnGnrlShowAllPayments.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGnrlShowAllPayments.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnGnrlShowAllPayments.ForeColor = System.Drawing.Color.White;
+            this.btnGnrlShowAllPayments.Location = new System.Drawing.Point(532, 0);
+            this.btnGnrlShowAllPayments.Name = "btnGnrlShowAllPayments";
+            this.btnGnrlShowAllPayments.Size = new System.Drawing.Size(106, 54);
+            this.btnGnrlShowAllPayments.TabIndex = 40;
+            this.btnGnrlShowAllPayments.Text = "Show Payments";
+            this.btnGnrlShowAllPayments.UseVisualStyleBackColor = false;
+            this.btnGnrlShowAllPayments.Click += new System.EventHandler(this.btnGnrlShowAllPayments_Click);
             // 
             // dGridView
             // 
@@ -161,6 +163,8 @@
             this.btnOrganizedPayments.Size = new System.Drawing.Size(89, 82);
             this.btnOrganizedPayments.TabIndex = 42;
             this.btnOrganizedPayments.UseVisualStyleBackColor = false;
+            this.btnOrganizedPayments.Visible = false;
+            this.btnOrganizedPayments.Click += new System.EventHandler(this.btnOrganizedPayments_Click);
             // 
             // btnAllPayments
             // 
@@ -175,6 +179,8 @@
             this.btnAllPayments.Size = new System.Drawing.Size(89, 82);
             this.btnAllPayments.TabIndex = 43;
             this.btnAllPayments.UseVisualStyleBackColor = false;
+            this.btnAllPayments.Visible = false;
+            this.btnAllPayments.Click += new System.EventHandler(this.btnAllPayments_Click);
             // 
             // lblTitle
             // 
@@ -184,9 +190,10 @@
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(8, 8);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(169, 39);
+            this.lblTitle.Size = new System.Drawing.Size(99, 39);
             this.lblTitle.TabIndex = 44;
-            this.lblTitle.Text = "All Payments";
+            this.lblTitle.Text = "lblTitle";
+            this.lblTitle.Visible = false;
             // 
             // paymentsForm
             // 
@@ -199,8 +206,8 @@
             this.Controls.Add(this.pnlAddPType);
             this.Controls.Add(this.btnOrganizedPayments);
             this.Controls.Add(this.dGridView);
-            this.Controls.Add(this.btnShowAllPayments);
-            this.Controls.Add(this.btnShowAddPanel);
+            this.Controls.Add(this.btnGnrlShowAllPayments);
+            this.Controls.Add(this.btnGnrlShowAddPanel);
             this.Controls.Add(this.btnBack);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -222,8 +229,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel pnlAddPType;
         private System.Windows.Forms.Button btnAddPaymentType;
-        private System.Windows.Forms.Button btnShowAddPanel;
-        private System.Windows.Forms.Button btnShowAllPayments;
+        private System.Windows.Forms.Button btnGnrlShowAddPanel;
+        private System.Windows.Forms.Button btnGnrlShowAllPayments;
         private System.Windows.Forms.DataGridView dGridView;
         private System.Windows.Forms.Button btnOrganizedPayments;
         private System.Windows.Forms.Button btnAllPayments;

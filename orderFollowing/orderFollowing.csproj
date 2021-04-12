@@ -49,6 +49,8 @@
     <Compile Include="classes\cCategories.cs" />
     <Compile Include="classes\cGetTotalBill.cs" />
     <Compile Include="classes\cOrderOperations.cs" />
+    <Compile Include="classes\cPaymentOperations.cs" />
+    <Compile Include="classes\cPaymentTypeOperations.cs" />
     <Compile Include="classes\cProducts.cs" />
     <Compile Include="classes\cGetDataFromSql.cs" />
     <Compile Include="classes\cGetOrdersOfTable.cs" />
