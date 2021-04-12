@@ -101,20 +101,20 @@ namespace orderFollowing
         }
         public void getBillId()
         {
-            sqlGeneralCommands.connectionString.Open();
-            sqlGeneralCommands.sqlCommand = new SqlCommand(sqlQuery, sqlGeneralCommands.connectionString);
-            sqlGeneralCommands.sqlCommand.Parameters.AddWithValue("@tableId", tableId);
-            dataTable = new DataTable();
-            dataAdapter = new SqlDataAdapter(sqlGeneralCommands.sqlCommand);
-            dataAdapter.Fill(dataTable);
-            sqlGeneralCommands.connectionString.Close();
-
             try
             {
                 sqlGeneralCommands.connectionString.Open();
-                sqlGeneralCommands.sqlCommand.ExecuteNonQuery();
+                sqlGeneralCommands.sqlCommand = new SqlCommand(sqlQuery, sqlGeneralCommands.connectionString);
+                sqlGeneralCommands.sqlCommand.Parameters.AddWithValue("@tableId", tableId);
+                dataTable = new DataTable();
+                dataAdapter = new SqlDataAdapter(sqlGeneralCommands.sqlCommand);
+                dataAdapter.Fill(dataTable);
                 sqlGeneralCommands.connectionString.Close();
             }
+                /*sqlGeneralCommands.connectionString.Open();
+                sqlGeneralCommands.sqlCommand.ExecuteNonQuery();
+                sqlGeneralCommands.connectionString.Close();*/
+            
             catch (Exception)
             {
                 MessageBox.Show("Connection Failed!");
@@ -122,21 +122,22 @@ namespace orderFollowing
         }
         public void getAllBills()
         {
-            sqlGeneralCommands.connectionString.Open();
-            sqlGeneralCommands.sqlCommand = new SqlCommand(sqlQuery, sqlGeneralCommands.connectionString);
-            sqlGeneralCommands.sqlCommand.Parameters.AddWithValue("@open", openingTime);
-            sqlGeneralCommands.sqlCommand.Parameters.AddWithValue("@closed", closingTime);
-            dataTable = new DataTable();
-            dataAdapter = new SqlDataAdapter(sqlGeneralCommands.sqlCommand);
-            dataAdapter.Fill(dataTable);
-            sqlGeneralCommands.connectionString.Close();
-
             try
             {
                 sqlGeneralCommands.connectionString.Open();
-                sqlGeneralCommands.sqlCommand.ExecuteNonQuery();
+                sqlGeneralCommands.sqlCommand = new SqlCommand(sqlQuery, sqlGeneralCommands.connectionString);
+                sqlGeneralCommands.sqlCommand.Parameters.AddWithValue("@open", openingTime);
+                sqlGeneralCommands.sqlCommand.Parameters.AddWithValue("@closed", closingTime);
+                dataTable = new DataTable();
+                dataAdapter = new SqlDataAdapter(sqlGeneralCommands.sqlCommand);
+                dataAdapter.Fill(dataTable);
                 sqlGeneralCommands.connectionString.Close();
             }
+            /*{
+                sqlGeneralCommands.connectionString.Open();
+                sqlGeneralCommands.sqlCommand.ExecuteNonQuery();
+                sqlGeneralCommands.connectionString.Close();
+            }*/
             catch (Exception)
             {
                 MessageBox.Show("Connection Failed!");

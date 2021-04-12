@@ -49,6 +49,8 @@
     <Compile Include="classes\cCategories.cs" />
     <Compile Include="classes\cGetTotalBill.cs" />
     <Compile Include="classes\cOrderOperations.cs" />
+    <Compile Include="classes\cPaymentOperations.cs" />
+    <Compile Include="classes\cPaymentTypeOperations.cs" />
     <Compile Include="classes\cProducts.cs" />
     <Compile Include="classes\cGetDataFromSql.cs" />
     <Compile Include="classes\cGetOrdersOfTable.cs" />
@@ -128,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\ordersForm.resx">
       <DependentUpon>ordersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\paymentsForm.resx">
+      <DependentUpon>paymentsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\staffsForm.resx">
       <DependentUpon>staffsForm.cs</DependentUpon>
@@ -262,6 +267,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="images\closed bill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\add credit card.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\payment types.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\all payments.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\organized.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

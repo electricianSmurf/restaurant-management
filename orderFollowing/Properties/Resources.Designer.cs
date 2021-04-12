@@ -113,6 +113,16 @@ namespace orderFollowing.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_credit_card {
+            get {
+                object obj = ResourceManager.GetObject("add credit card", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add_icon {
             get {
                 object obj = ResourceManager.GetObject("add icon", resourceCulture);
@@ -126,6 +136,16 @@ namespace orderFollowing.Properties {
         internal static System.Drawing.Bitmap addBtn {
             get {
                 object obj = ResourceManager.GetObject("addBtn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap all_payments {
+            get {
+                object obj = ResourceManager.GetObject("all payments", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -306,6 +326,26 @@ namespace orderFollowing.Properties {
         internal static System.Drawing.Bitmap orders {
             get {
                 object obj = ResourceManager.GetObject("orders", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap organized {
+            get {
+                object obj = ResourceManager.GetObject("organized", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap payment_types {
+            get {
+                object obj = ResourceManager.GetObject("payment types", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
