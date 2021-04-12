@@ -74,6 +74,7 @@ namespace orderFollowing.forms
         {
             lblTitle.Visible = true;
             tidyFormForAddingNewType();
+            listAllPaymentTypes();
         }
 
         void tidyFormForAddingNewType()
@@ -86,6 +87,26 @@ namespace orderFollowing.forms
                 {
                     changeItemsVisibleStatus();
                 }
+            }
+        }
+
+        void listAllPaymentTypes()
+        {
+            pType = new cPaymentTypeOperations();
+            pType.sqlQuery = "select explanation from PAYMENTTYPE";
+            pType.showPaymentTypes();
+
+            fillLView();
+        }
+
+        void fillLView()
+        {
+            LViewPTypes.Items.Clear();
+            LViewPTypes.View = View.Details;
+
+            foreach (DataRow row in pType.dataTable.Rows)
+            {
+                LViewPTypes.Items.Add(row["explanation"].ToString());
             }
         }
 

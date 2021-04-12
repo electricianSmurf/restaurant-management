@@ -40,6 +40,8 @@
             this.btnOrganizedPayments = new System.Windows.Forms.Button();
             this.btnAllPayments = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.LViewPTypes = new System.Windows.Forms.ListView();
+            this.CHexplanation = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnlAddPType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGridView)).BeginInit();
             this.SuspendLayout();
@@ -81,6 +83,7 @@
             // pnlAddPType
             // 
             this.pnlAddPType.BackColor = System.Drawing.Color.Brown;
+            this.pnlAddPType.Controls.Add(this.LViewPTypes);
             this.pnlAddPType.Controls.Add(this.btnAddPaymentType);
             this.pnlAddPType.Controls.Add(this.label2);
             this.pnlAddPType.Controls.Add(this.TBoxPType);
@@ -195,6 +198,24 @@
             this.lblTitle.Text = "lblTitle";
             this.lblTitle.Visible = false;
             // 
+            // LViewPTypes
+            // 
+            this.LViewPTypes.BackColor = System.Drawing.Color.Khaki;
+            this.LViewPTypes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.CHexplanation});
+            this.LViewPTypes.FullRowSelect = true;
+            this.LViewPTypes.HideSelection = false;
+            this.LViewPTypes.Location = new System.Drawing.Point(0, 56);
+            this.LViewPTypes.Name = "LViewPTypes";
+            this.LViewPTypes.Size = new System.Drawing.Size(124, 111);
+            this.LViewPTypes.TabIndex = 39;
+            this.LViewPTypes.UseCompatibleStateImageBehavior = false;
+            // 
+            // CHexplanation
+            // 
+            this.CHexplanation.Text = "Payment Type";
+            this.CHexplanation.Width = 100;
+            // 
             // paymentsForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -235,5 +256,7 @@
         private System.Windows.Forms.Button btnOrganizedPayments;
         private System.Windows.Forms.Button btnAllPayments;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.ListView LViewPTypes;
+        private System.Windows.Forms.ColumnHeader CHexplanation;
     }
 }

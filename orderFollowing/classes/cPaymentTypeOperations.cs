@@ -20,6 +20,24 @@ namespace orderFollowing
         private SqlDataAdapter dataAdapter;
         public DataTable dataTable = new DataTable();
 
+        public void showPaymentTypes()
+        {
+            try
+            {
+                sqlGeneralCommands.connectionString.Open();
+                sqlGeneralCommands.sqlCommand = new SqlCommand(sqlQuery, sqlGeneralCommands.connectionString);
+                
+                dataTable = new DataTable();
+                dataAdapter = new SqlDataAdapter(sqlGeneralCommands.sqlCommand);
+                dataAdapter.Fill(dataTable);
+                sqlGeneralCommands.connectionString.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Connection Failed!");
+            }
+        }
+
         public bool checkIsPTypeAlive()
         {
             try
