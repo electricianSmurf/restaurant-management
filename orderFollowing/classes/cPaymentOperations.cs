@@ -14,7 +14,12 @@ namespace orderFollowing
     {
         cSqlGeneralCommands sqlGeneralCommands = new cSqlGeneralCommands();
         public string sqlQuery;
+
         public int tableId;
+        public int billId;
+        public int total;
+        public DateTime paymentTime;
+        public int paymentType;
 
         public DateTime paymentStartTime;
         public DateTime paymentFinishTime;
@@ -40,6 +45,33 @@ namespace orderFollowing
             catch (Exception)
             {
                 MessageBox.Show("Connection Failed!");
+            }
+        }
+
+        public void addNewPayment()
+        {
+            using (sqlGeneralCommands.connectionString)
+            {
+                using (sqlGeneralCommands.sqlCommand = new SqlCommand())
+                {
+                    sqlGeneralCommands.sqlCommand.Connection = sqlGeneralCommands.connectionString;
+
+                    sqlGeneralCommands.sqlCommand.CommandText = sqlQuery;
+
+                    sqlGeneralCommands.sqlCommand.Parameters.AddWithValue("@tableId", tableId);
+                    sqlGeneralCommands.sqlCommand.Parameters.AddWithValue("@billId", billId);
+
+                    try
+                    {
+                        sqlGeneralCommands.connectionString.Open();
+                        sqlGeneralCommands.sqlCommand.ExecuteNonQuery();
+                        sqlGeneralCommands.connectionString.Close();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Connection Failed!");
+                    }
+                }
             }
         }
 
