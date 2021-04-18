@@ -35,15 +35,14 @@
             this.btnOpenBills = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlConfirmPayment = new System.Windows.Forms.Panel();
+            this.btnCloseConfirmPPanel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.CBoxPType = new System.Windows.Forms.ComboBox();
             this.LViewOrders = new System.Windows.Forms.ListView();
             this.CHProduct = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.CHQuantity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnConfirmPayment = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnCloseConfirmPPanel = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.CHQuantity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.dGridView)).BeginInit();
             this.pnlConfirmPayment.SuspendLayout();
             this.SuspendLayout();
@@ -118,7 +117,6 @@
             // pnlConfirmPayment
             // 
             this.pnlConfirmPayment.BackColor = System.Drawing.Color.Brown;
-            this.pnlConfirmPayment.Controls.Add(this.label3);
             this.pnlConfirmPayment.Controls.Add(this.btnCloseConfirmPPanel);
             this.pnlConfirmPayment.Controls.Add(this.label1);
             this.pnlConfirmPayment.Controls.Add(this.CBoxPType);
@@ -130,6 +128,19 @@
             this.pnlConfirmPayment.Size = new System.Drawing.Size(468, 350);
             this.pnlConfirmPayment.TabIndex = 39;
             this.pnlConfirmPayment.Visible = false;
+            // 
+            // btnCloseConfirmPPanel
+            // 
+            this.btnCloseConfirmPPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.btnCloseConfirmPPanel.BackgroundImage = global::orderFollowing.Properties.Resources.x1;
+            this.btnCloseConfirmPPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCloseConfirmPPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCloseConfirmPPanel.Location = new System.Drawing.Point(445, 0);
+            this.btnCloseConfirmPPanel.Name = "btnCloseConfirmPPanel";
+            this.btnCloseConfirmPPanel.Size = new System.Drawing.Size(22, 22);
+            this.btnCloseConfirmPPanel.TabIndex = 42;
+            this.btnCloseConfirmPPanel.UseVisualStyleBackColor = false;
+            this.btnCloseConfirmPPanel.Click += new System.EventHandler(this.btnCloseConfirmPPanel_Click);
             // 
             // label1
             // 
@@ -170,6 +181,11 @@
             this.CHProduct.Text = "Product";
             this.CHProduct.Width = 100;
             // 
+            // CHQuantity
+            // 
+            this.CHQuantity.Text = "Quantity";
+            this.CHQuantity.Width = 100;
+            // 
             // btnConfirmPayment
             // 
             this.btnConfirmPayment.BackColor = System.Drawing.Color.Brown;
@@ -196,36 +212,6 @@
             this.label2.Size = new System.Drawing.Size(118, 25);
             this.label2.TabIndex = 34;
             this.label2.Text = "Payment Type";
-            // 
-            // btnCloseConfirmPPanel
-            // 
-            this.btnCloseConfirmPPanel.BackColor = System.Drawing.SystemColors.Control;
-            this.btnCloseConfirmPPanel.BackgroundImage = global::orderFollowing.Properties.Resources.x1;
-            this.btnCloseConfirmPPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCloseConfirmPPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCloseConfirmPPanel.Location = new System.Drawing.Point(445, 0);
-            this.btnCloseConfirmPPanel.Name = "btnCloseConfirmPPanel";
-            this.btnCloseConfirmPPanel.Size = new System.Drawing.Size(22, 22);
-            this.btnCloseConfirmPPanel.TabIndex = 42;
-            this.btnCloseConfirmPPanel.UseVisualStyleBackColor = false;
-            this.btnCloseConfirmPPanel.Click += new System.EventHandler(this.btnCloseConfirmPPanel_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(20, 304);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 25);
-            this.label3.TabIndex = 42;
-            this.label3.Text = "Orders";
-            // 
-            // CHQuantity
-            // 
-            this.CHQuantity.Text = "Quantity";
-            this.CHQuantity.Width = 100;
             // 
             // billsForm
             // 
@@ -268,7 +254,6 @@
         private System.Windows.Forms.ComboBox CBoxPType;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCloseConfirmPPanel;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ColumnHeader CHQuantity;
     }
 }

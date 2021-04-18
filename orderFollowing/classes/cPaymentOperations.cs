@@ -75,5 +75,35 @@ namespace orderFollowing
             }
         }
 
+        public void closePayment()
+        {
+            using (sqlGeneralCommands.connectionString)
+            {
+                using (sqlGeneralCommands.sqlCommand = new SqlCommand())
+                {
+                    sqlGeneralCommands.sqlCommand.Connection = sqlGeneralCommands.connectionString;
+
+                    sqlGeneralCommands.sqlCommand.CommandText = sqlQuery;
+
+                    sqlGeneralCommands.sqlCommand.Parameters.AddWithValue("@tableId", tableId);
+                    sqlGeneralCommands.sqlCommand.Parameters.AddWithValue("@billId", billId);
+                    sqlGeneralCommands.sqlCommand.Parameters.AddWithValue("@total", total);
+                    sqlGeneralCommands.sqlCommand.Parameters.AddWithValue("@payTime", paymentTime);
+                    sqlGeneralCommands.sqlCommand.Parameters.AddWithValue("@pType", paymentType);
+
+                    try
+                    {
+                        sqlGeneralCommands.connectionString.Open();
+                        sqlGeneralCommands.sqlCommand.ExecuteNonQuery();
+                        sqlGeneralCommands.connectionString.Close();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Connection Failed!");
+                    }
+                }
+            }
+        }
+
     }
 }

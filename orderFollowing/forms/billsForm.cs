@@ -16,6 +16,7 @@ namespace orderFollowing.forms
         cTableOperations table;
         cPaymentTypeOperations pType;
         cGetOrdersOfTable ordersOfTable;
+        cPaymentOperations payment;
 
         public billsForm()
         {
@@ -109,8 +110,6 @@ namespace orderFollowing.forms
             ordersOfTable.GetOrdersFromSql();
 
             fillLViewOrders();
-
-            label3.Text = "tableId " + ordersOfTable.tableId.ToString() + " billId " + ordersOfTable.billId.ToString();
         }
 
         void fillLViewOrders()
@@ -140,6 +139,7 @@ namespace orderFollowing.forms
             {
                 closeTableAccount();
                 closeTableBill();
+                executePayment();
                 showOpenBills();
                 pnlConfirmPayment.Visible = false;
             }
@@ -163,7 +163,18 @@ namespace orderFollowing.forms
 
         void executePayment()
         {
+            payment = new cPaymentOperations();
+            payment.sqlQuery = "update PAYMENTS set paymentTotal = @total, date = @payTime, paymentType = @pType, "
+            + "paymentStatus = 1 where billID = @billId and tableID = @tableId";
+            payment.billId = Convert.ToInt32(dGridView.CurrentRow.Cells["Bill No"].Value);
+            payment.tableId = Convert.ToInt32(dGridView.CurrentRow.Cells["tableID"].Value);
+            payment.total = Convert.ToInt32(dGridView.CurrentRow.Cells["Total"].Value);
+            payment.paymentTime = DateTime.Now;
+            payment.paymentType = (CBoxPType.SelectedIndex) + 1;
 
+            label3.Text = "bill " + payment.billId.ToString() + " table " + payment.tableId.ToString() + " total " + payment.total.ToString()
+            + " time " + payment.paymentTime.ToString() + " pType " + payment.paymentType.ToString();
+            payment.closePayment();
         }
 
         private void btnCloseConfirmPPanel_Click(object sender, EventArgs e)
