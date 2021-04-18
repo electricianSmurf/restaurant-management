@@ -33,6 +33,8 @@
             this.TBoxPType = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlAddPType = new System.Windows.Forms.Panel();
+            this.LViewPTypes = new System.Windows.Forms.ListView();
+            this.CHexplanation = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnAddPaymentType = new System.Windows.Forms.Button();
             this.btnGnrlShowAddPanel = new System.Windows.Forms.Button();
             this.btnGnrlShowAllPayments = new System.Windows.Forms.Button();
@@ -40,8 +42,7 @@
             this.btnOrganizedPayments = new System.Windows.Forms.Button();
             this.btnAllPayments = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.LViewPTypes = new System.Windows.Forms.ListView();
-            this.CHexplanation = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lblPaymentsSum = new System.Windows.Forms.Label();
             this.pnlAddPType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGridView)).BeginInit();
             this.SuspendLayout();
@@ -92,6 +93,24 @@
             this.pnlAddPType.Size = new System.Drawing.Size(330, 167);
             this.pnlAddPType.TabIndex = 38;
             this.pnlAddPType.Visible = false;
+            // 
+            // LViewPTypes
+            // 
+            this.LViewPTypes.BackColor = System.Drawing.Color.Khaki;
+            this.LViewPTypes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.CHexplanation});
+            this.LViewPTypes.FullRowSelect = true;
+            this.LViewPTypes.HideSelection = false;
+            this.LViewPTypes.Location = new System.Drawing.Point(0, 56);
+            this.LViewPTypes.Name = "LViewPTypes";
+            this.LViewPTypes.Size = new System.Drawing.Size(124, 111);
+            this.LViewPTypes.TabIndex = 39;
+            this.LViewPTypes.UseCompatibleStateImageBehavior = false;
+            // 
+            // CHexplanation
+            // 
+            this.CHexplanation.Text = "Payment Type";
+            this.CHexplanation.Width = 100;
             // 
             // btnAddPaymentType
             // 
@@ -198,23 +217,18 @@
             this.lblTitle.Text = "lblTitle";
             this.lblTitle.Visible = false;
             // 
-            // LViewPTypes
+            // lblPaymentsSum
             // 
-            this.LViewPTypes.BackColor = System.Drawing.Color.Khaki;
-            this.LViewPTypes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.CHexplanation});
-            this.LViewPTypes.FullRowSelect = true;
-            this.LViewPTypes.HideSelection = false;
-            this.LViewPTypes.Location = new System.Drawing.Point(0, 56);
-            this.LViewPTypes.Name = "LViewPTypes";
-            this.LViewPTypes.Size = new System.Drawing.Size(124, 111);
-            this.LViewPTypes.TabIndex = 39;
-            this.LViewPTypes.UseCompatibleStateImageBehavior = false;
-            // 
-            // CHexplanation
-            // 
-            this.CHexplanation.Text = "Payment Type";
-            this.CHexplanation.Width = 100;
+            this.lblPaymentsSum.AutoSize = true;
+            this.lblPaymentsSum.BackColor = System.Drawing.Color.Brown;
+            this.lblPaymentsSum.Font = new System.Drawing.Font("Monotype Corsiva", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblPaymentsSum.ForeColor = System.Drawing.Color.White;
+            this.lblPaymentsSum.Location = new System.Drawing.Point(221, 402);
+            this.lblPaymentsSum.Name = "lblPaymentsSum";
+            this.lblPaymentsSum.Size = new System.Drawing.Size(143, 28);
+            this.lblPaymentsSum.TabIndex = 45;
+            this.lblPaymentsSum.Text = "Payments Sum:";
+            this.lblPaymentsSum.Visible = false;
             // 
             // paymentsForm
             // 
@@ -222,6 +236,7 @@
             this.BackgroundImage = global::orderFollowing.Properties.Resources.bg_image;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(745, 457);
+            this.Controls.Add(this.lblPaymentsSum);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnAllPayments);
             this.Controls.Add(this.pnlAddPType);
@@ -258,5 +273,6 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.ListView LViewPTypes;
         private System.Windows.Forms.ColumnHeader CHexplanation;
+        private System.Windows.Forms.Label lblPaymentsSum;
     }
 }
