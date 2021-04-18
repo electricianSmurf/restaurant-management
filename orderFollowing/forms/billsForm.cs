@@ -172,8 +172,6 @@ namespace orderFollowing.forms
             payment.paymentTime = DateTime.Now;
             payment.paymentType = (CBoxPType.SelectedIndex) + 1;
 
-            label3.Text = "bill " + payment.billId.ToString() + " table " + payment.tableId.ToString() + " total " + payment.total.ToString()
-            + " time " + payment.paymentTime.ToString() + " pType " + payment.paymentType.ToString();
             payment.closePayment();
         }
 
