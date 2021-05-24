@@ -13,9 +13,11 @@ namespace orderFollowing//.classes
     class cCategoryOperations
     {
         cSqlGeneralCommands generalSqlCommands = new cSqlGeneralCommands();
+
         public string sqlQuery;
-        private SqlDataAdapter dataAdapter;
         public DataTable dataTable;
+
+        private SqlDataAdapter dataAdapter;
 
         public void getCategoryNames()
         {
