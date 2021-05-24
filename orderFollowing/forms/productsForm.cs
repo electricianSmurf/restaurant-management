@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace orderFollowing.forms
 {
-    public partial class foodsForm : Form
+    public partial class productsForm : Form
     {
-        public foodsForm()
+        public productsForm()
         {
             InitializeComponent();
+        }
+
+        private void productsForm_Load(object sender, EventArgs e)
+        {
+            bringCategories();
+        }
+
+        void bringCategories()
+        {
+
         }
     }
 }

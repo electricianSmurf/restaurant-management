@@ -94,7 +94,7 @@ namespace orderFollowing
         private void btnFoods_Click(object sender, EventArgs e)
         {
             this.Hide();
-            forms.foodsForm foodsForm = new forms.foodsForm();
+            forms.productsForm foodsForm = new forms.productsForm();
             foodsForm.ShowDialog();
             this.Close();
         }
