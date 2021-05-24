@@ -24,6 +24,12 @@ namespace orderFollowing
             saveStaffExitTime();
             this.Close();
         }
+
+        private void mainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            saveStaffExitTime();
+        }
+
         void saveStaffExitTime()
         {
             cStaffActivities staffActivity = new cStaffActivities();
@@ -76,5 +82,23 @@ namespace orderFollowing
             paymentsForm.ShowDialog();
             this.Close();
         }
+
+        private void btnDrinks_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            forms.drinksForm drinksForm = new forms.drinksForm();
+            drinksForm.ShowDialog();
+            this.Close();
+        }
+
+        private void btnFoods_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            forms.foodsForm foodsForm = new forms.foodsForm();
+            foodsForm.ShowDialog();
+            this.Close();
+        }
+
+       
     }
 }

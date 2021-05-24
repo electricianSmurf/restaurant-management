@@ -102,6 +102,7 @@
             this.btnDrinks.Size = new System.Drawing.Size(124, 86);
             this.btnDrinks.TabIndex = 4;
             this.btnDrinks.UseVisualStyleBackColor = true;
+            this.btnDrinks.Click += new System.EventHandler(this.btnDrinks_Click);
             // 
             // btnFoods
             // 
@@ -114,6 +115,7 @@
             this.btnFoods.Size = new System.Drawing.Size(124, 86);
             this.btnFoods.TabIndex = 3;
             this.btnFoods.UseVisualStyleBackColor = true;
+            this.btnFoods.Click += new System.EventHandler(this.btnFoods_Click);
             // 
             // btnReservations
             // 
@@ -174,6 +176,7 @@
             this.Name = "mainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main Page";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.mainForm_FormClosing);
             this.ResumeLayout(false);
 
         }
