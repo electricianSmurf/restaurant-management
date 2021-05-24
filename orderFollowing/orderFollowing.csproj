@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="classes\cBillOperations.cs" />
     <Compile Include="classes\cCategories.cs" />
+    <Compile Include="classes\cCategoryOperations.cs" />
     <Compile Include="classes\cGetTotalBill.cs" />
     <Compile Include="classes\cOrderOperations.cs" />
     <Compile Include="classes\cPaymentOperations.cs" />
