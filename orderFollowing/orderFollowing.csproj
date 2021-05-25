@@ -69,11 +69,11 @@
     <Compile Include="forms\billsForm.Designer.cs">
       <DependentUpon>billsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\drinksForm.cs">
+    <Compile Include="forms\categoriesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\drinksForm.Designer.cs">
-      <DependentUpon>drinksForm.cs</DependentUpon>
+    <Compile Include="forms\categoriesForm.Designer.cs">
+      <DependentUpon>categoriesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\productsForm.cs">
       <SubType>Form</SubType>
@@ -127,6 +127,9 @@
     </Compile>
     <EmbeddedResource Include="forms\billsForm.resx">
       <DependentUpon>billsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\categoriesForm.resx">
+      <DependentUpon>categoriesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\productsForm.resx">
       <DependentUpon>productsForm.cs</DependentUpon>
@@ -300,6 +303,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="images\update1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\products.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\product.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\categories.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
