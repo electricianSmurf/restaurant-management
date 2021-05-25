@@ -48,7 +48,6 @@
             this.btnGnrlAdd = new System.Windows.Forms.Button();
             this.btnGnrlUpdate = new System.Windows.Forms.Button();
             this.btnUpdateProduct = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dGridView)).BeginInit();
             this.pnlAddProduct.SuspendLayout();
             this.SuspendLayout();
@@ -301,18 +300,6 @@
             this.btnUpdateProduct.Visible = false;
             this.btnUpdateProduct.Click += new System.EventHandler(this.btnUpdateProduct_Click);
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(131, 389);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(103, 22);
-            this.label6.TabIndex = 45;
-            this.label6.Text = "Product Price";
-            // 
             // productsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -320,7 +307,6 @@
             this.BackgroundImage = global::orderFollowing.Properties.Resources.bg_image;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(745, 457);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnUpdateProduct);
             this.Controls.Add(this.btnGnrlUpdate);
             this.Controls.Add(this.btnGnrlShow);
@@ -338,7 +324,6 @@
             this.pnlAddProduct.ResumeLayout(false);
             this.pnlAddProduct.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -363,6 +348,5 @@
         private System.Windows.Forms.Button btnGnrlAdd;
         private System.Windows.Forms.Button btnGnrlUpdate;
         private System.Windows.Forms.Button btnUpdateProduct;
-        private System.Windows.Forms.Label label6;
     }
 }
