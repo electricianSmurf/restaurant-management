@@ -15,6 +15,7 @@ namespace orderFollowing.forms
         cCategoryOperations category;
         cGetDataFromSql getData;
         cUpdateProduct product;
+        cAddNewProduct addNew;
 
         bool productStatus;
         bool cellClickAllowed;
@@ -36,24 +37,31 @@ namespace orderFollowing.forms
         void tidyFormForAdding()
         {
             CBoxCategoryName.DropDownStyle = ComboBoxStyle.DropDownList;
-            TBoxProductName.Text = "";
-            RTBoxContent.Text = "";
-            TBoxPrice.Text = "";
-            radioBtnAvailable.Checked = false;
-            radioBtnAbsent.Checked = false;
+            cleanTBoxes();
 
             btnAddProduct.Visible = true;
             pnlAddProduct.Visible = true;
 
             btnUpdateProduct.Visible = false;
-            dGridView.Visible = false;
+            dGridView.Visible = true;
             cellClickAllowed = false;
+        }
+
+        void cleanTBoxes()
+        {
+            TBoxProductName.Text = "";
+            RTBoxContent.Text = "";
+            TBoxPrice.Text = "";
+            radioBtnAvailable.Checked = false;
+            radioBtnAbsent.Checked = false;
         }
         private void btnGnrlAdd_Click(object sender, EventArgs e)
         {
             tidyFormForAdding();
 
             bringCategories();
+
+            showAllProducts();
         }
 
         void bringCategories()
@@ -88,6 +96,7 @@ namespace orderFollowing.forms
             pnlAddProduct.Visible = true;
             CBoxCategoryName.DropDownStyle = ComboBoxStyle.Simple;
             CBoxCategoryName.Items.Clear();
+            cleanTBoxes();
 
             btnAddProduct.Visible = false;
             btnUpdateProduct.Visible = false;
@@ -100,7 +109,7 @@ namespace orderFollowing.forms
             getData = new cGetDataFromSql();
             getData.sqlQuery = "select categoryName as 'Category', productName as 'Product', Explanation, "
             + "case when productStatus = 1 then 'Available' else 'Absent' end as 'Status', Price "
-            + "from PRODUCTS inner join CATEGORIES on PRODUCTS.categoryID = CATEGORIES.categoryID";
+            + "from PRODUCTS inner join CATEGORIES on PRODUCTS.categoryID = CATEGORIES.categoryID order by categoryName";
             getData.GetDataFromSql();
             dGridView.DataSource = getData.dataTable;
         }
@@ -114,9 +123,10 @@ namespace orderFollowing.forms
 
         void tidyFormForUpdating()
         {
-            CBoxCategoryName.Items.Clear();
             CBoxCategoryName.DropDownStyle = ComboBoxStyle.Simple;
+            CBoxCategoryName.Items.Clear();
             btnAddProduct.Visible = false;
+            cleanTBoxes();
 
             btnUpdateProduct.Visible = true;
             pnlAddProduct.Visible = true;
@@ -187,6 +197,79 @@ namespace orderFollowing.forms
             updateProduct();
 
             showAllProducts();
+        }
+
+        private void btnAddProduct_Click(object sender, EventArgs e)
+        {
+            if (checkIsAllInfoAdded())
+            {
+                addNew = new cAddNewProduct();
+                addNew.sqlQuery = "insert into PRODUCTS(categoryID, productName, explanation, price, productStatus) "
+               + "values(@category, @product, @content, @price, @status)";
+                getParametersForNewProduct();
+                addNew.addProduct();
+
+                showAllProducts();
+            }
+        }
+
+        private bool checkIsAllInfoAdded()
+        {
+            bool state = true;
+            if (string.IsNullOrEmpty(CBoxCategoryName.Text))
+            {
+                state = false;
+                MessageBox.Show("Please select a category!");
+            }
+            else if (string.IsNullOrEmpty(TBoxProductName.Text))
+            {
+                state = false;
+                MessageBox.Show("Please type a product name!");
+            }
+            else if (string.IsNullOrEmpty(RTBoxContent.Text))
+            {
+                state = false;
+                MessageBox.Show("Please enter the product content!");
+            }
+            else if (string.IsNullOrEmpty(TBoxPrice.Text))
+            {
+                state = false;
+                MessageBox.Show("Please enter the price!");
+            }
+            else if (!string.IsNullOrEmpty(TBoxPrice.Text))
+            {
+                decimal money;
+                if (!decimal.TryParse(TBoxPrice.Text, out money))
+                {
+                    MessageBox.Show("This field is for numbers only!");
+                    state = false;
+                }
+            }
+
+            if (!radioBtnAbsent.Checked && !radioBtnAvailable.Checked)
+            {
+                state = false;
+                MessageBox.Show("Please select the product status!");
+            }
+            
+            return state;
+        }
+        void getParametersForNewProduct()
+        {
+            addNew.category = CBoxCategoryName.SelectedIndex + 1;
+            addNew.productName = TBoxProductName.Text;
+            addNew.content = RTBoxContent.Text;
+            addNew.price = Convert.ToDecimal(TBoxPrice.Text);
+
+            bool prodStatus = false;
+            if (radioBtnAvailable.Checked)
+            {
+                prodStatus = true;
+            }
+            addNew.status = prodStatus;
+
+            /*label6.Text = "catego " + CBoxCategoryName.SelectedIndex.ToString() + " name " + TBoxProductName.Text
+            + " content " + RTBoxContent.Text + " price " + TBoxPrice.Text + " status " + prodStatus.ToString();*/
         }
     }
 }
