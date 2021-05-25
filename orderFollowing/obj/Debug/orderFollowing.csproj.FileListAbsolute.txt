@@ -49,3 +49,4 @@ C:\Users\R\Desktop\VStudio projects\orderFollowing\Yeni klasör\orderFollowing\o
 C:\Users\R\Desktop\VStudio projects\orderFollowing\Yeni klasör\orderFollowing\obj\Debug\orderFollowing.forms.billsForm.resources
 C:\Users\R\Desktop\VStudio projects\orderFollowing\Yeni klasör\orderFollowing\obj\Debug\orderFollowing.forms.paymentsForm.resources
 C:\Users\R\Desktop\VStudio projects\orderFollowing\Yeni klasör\orderFollowing\obj\Debug\orderFollowing.forms.productsForm.resources
+C:\Users\R\Desktop\VStudio projects\orderFollowing\Yeni klasör\orderFollowing\obj\Debug\orderFollowing.forms.categoriesForm.resources

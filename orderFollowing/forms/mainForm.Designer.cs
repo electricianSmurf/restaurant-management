@@ -32,7 +32,7 @@
             this.btnBills = new System.Windows.Forms.Button();
             this.btnOrders = new System.Windows.Forms.Button();
             this.btnPayments = new System.Windows.Forms.Button();
-            this.btnDrinks = new System.Windows.Forms.Button();
+            this.btnCategories = new System.Windows.Forms.Button();
             this.btnFoods = new System.Windows.Forms.Button();
             this.btnReservations = new System.Windows.Forms.Button();
             this.btnTables = new System.Windows.Forms.Button();
@@ -91,22 +91,22 @@
             this.btnPayments.UseVisualStyleBackColor = true;
             this.btnPayments.Click += new System.EventHandler(this.btnPayments_Click);
             // 
-            // btnDrinks
+            // btnCategories
             // 
-            this.btnDrinks.BackgroundImage = global::orderFollowing.Properties.Resources.drinks;
-            this.btnDrinks.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDrinks.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDrinks.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDrinks.Location = new System.Drawing.Point(340, 193);
-            this.btnDrinks.Name = "btnDrinks";
-            this.btnDrinks.Size = new System.Drawing.Size(124, 86);
-            this.btnDrinks.TabIndex = 4;
-            this.btnDrinks.UseVisualStyleBackColor = true;
-            this.btnDrinks.Click += new System.EventHandler(this.btnDrinks_Click);
+            this.btnCategories.BackgroundImage = global::orderFollowing.Properties.Resources.categories;
+            this.btnCategories.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCategories.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCategories.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCategories.Location = new System.Drawing.Point(340, 193);
+            this.btnCategories.Name = "btnCategories";
+            this.btnCategories.Size = new System.Drawing.Size(124, 86);
+            this.btnCategories.TabIndex = 4;
+            this.btnCategories.UseVisualStyleBackColor = true;
+            this.btnCategories.Click += new System.EventHandler(this.btnCategories_Click);
             // 
             // btnFoods
             // 
-            this.btnFoods.BackgroundImage = global::orderFollowing.Properties.Resources.foods;
+            this.btnFoods.BackgroundImage = global::orderFollowing.Properties.Resources.product;
             this.btnFoods.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnFoods.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFoods.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -167,7 +167,7 @@
             this.Controls.Add(this.btnBills);
             this.Controls.Add(this.btnOrders);
             this.Controls.Add(this.btnPayments);
-            this.Controls.Add(this.btnDrinks);
+            this.Controls.Add(this.btnCategories);
             this.Controls.Add(this.btnFoods);
             this.Controls.Add(this.btnReservations);
             this.Controls.Add(this.btnTables);
@@ -187,7 +187,7 @@
         private System.Windows.Forms.Button btnTables;
         private System.Windows.Forms.Button btnReservations;
         private System.Windows.Forms.Button btnFoods;
-        private System.Windows.Forms.Button btnDrinks;
+        private System.Windows.Forms.Button btnCategories;
         private System.Windows.Forms.Button btnPayments;
         private System.Windows.Forms.Button btnOrders;
         private System.Windows.Forms.Button btnBills;

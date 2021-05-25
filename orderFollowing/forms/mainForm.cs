@@ -83,14 +83,6 @@ namespace orderFollowing
             this.Close();
         }
 
-        private void btnDrinks_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            forms.drinksForm drinksForm = new forms.drinksForm();
-            drinksForm.ShowDialog();
-            this.Close();
-        }
-
         private void btnFoods_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -99,6 +91,12 @@ namespace orderFollowing
             this.Close();
         }
 
-       
+        private void btnCategories_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            forms.categoriesForm categoriesForm = new forms.categoriesForm();
+            categoriesForm.ShowDialog();
+            this.Close();
+        }
     }
 }
