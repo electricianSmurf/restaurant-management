@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="classes\cBillOperations.cs" />
     <Compile Include="classes\cCategories.cs" />
+    <Compile Include="classes\cCategoryOperations.cs" />
     <Compile Include="classes\cGetTotalBill.cs" />
     <Compile Include="classes\cOrderOperations.cs" />
     <Compile Include="classes\cPaymentOperations.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="classes\cStaffActivities.cs" />
     <Compile Include="classes\cTableOperations.cs" />
     <Compile Include="classes\cUpdatePreparationStatus.cs" />
+    <Compile Include="classes\cUpdateProduct.cs" />
     <Compile Include="forms\billsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,11 +74,11 @@
     <Compile Include="forms\drinksForm.Designer.cs">
       <DependentUpon>drinksForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\foodsForm.cs">
+    <Compile Include="forms\productsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\foodsForm.Designer.cs">
-      <DependentUpon>foodsForm.cs</DependentUpon>
+    <Compile Include="forms\productsForm.Designer.cs">
+      <DependentUpon>productsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\loginForm.cs">
       <SubType>Form</SubType>
@@ -124,6 +126,9 @@
     </Compile>
     <EmbeddedResource Include="forms\billsForm.resx">
       <DependentUpon>billsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\productsForm.resx">
+      <DependentUpon>productsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\loginForm.resx">
       <DependentUpon>loginForm.cs</DependentUpon>
@@ -279,6 +284,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="images\organized.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\confirm payment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\confirm payment ccard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\confirm payment1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\update.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\update1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

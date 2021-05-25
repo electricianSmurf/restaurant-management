@@ -18,6 +18,7 @@ namespace orderFollowing.forms
         cInsertUpdateOrder newOrder;
         cBillOperations newBill;
         cGetTotalBill getBillTotal;
+        cPaymentOperations newPayment;
         
         List<cCategories> categoryList;
 
@@ -342,6 +343,9 @@ namespace orderFollowing.forms
 
                         tidyPnlGeneral();
                         getBillId();
+
+                        createNewPayment();
+
                         loadTableOrders(PBoxClicked.Tag.ToString());
                         lblTotal.Text = "0";
                     }
@@ -394,6 +398,16 @@ namespace orderFollowing.forms
             newBill.tableId = Convert.ToInt32(PBoxClicked.Tag);
             newBill.getBillId();
             billId = Convert.ToInt32(newBill.dataTable.Rows[0][0]);
+        }
+
+        void createNewPayment()
+        {
+            newPayment = new cPaymentOperations();
+            newPayment.sqlQuery = "insert into PAYMENTS (billID, tableID, paymentTotal, paymentStatus) "
+            + "values(@billId, @tableId, 0, 0)";
+            newPayment.billId = billId;
+            newPayment.tableId = Convert.ToInt32(PBoxClicked.Tag);
+            newPayment.addNewPayment();
         }
 
         void loadTableOrders(string tableId)

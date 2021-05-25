@@ -32,9 +32,12 @@ namespace orderFollowing.forms
         private void btnGnrlShowAllPayments_Click(object sender, EventArgs e)
         {
             lblTitle.Visible = true;
+            lblPaymentsSum.Visible = true;
             tidyFormForViewingPayments();
 
             showAllPayments();
+
+            calculatePaymentTotal();
         }
 
         void tidyFormForViewingPayments()
@@ -69,11 +72,25 @@ namespace orderFollowing.forms
 
             dGridView.DataSource = payment.dataTable;
         }
+
+        void calculatePaymentTotal()
+        {
+            double sum = 0;
+            for (int i = 0; i < dGridView.Rows.Count - 1; i++)
+            {
+                sum = sum + Convert.ToDouble(dGridView.Rows[i].Cells["Total"].Value);
+            }
+
+            lblPaymentsSum.Text = "Payments Sum: " + sum.ToString();
+        }
         
         private void btnGnrlShowAddPanel_Click(object sender, EventArgs e)
         {
             lblTitle.Visible = true;
+            lblPaymentsSum.Visible = false;
+
             tidyFormForAddingNewType();
+            listAllPaymentTypes();
         }
 
         void tidyFormForAddingNewType()
@@ -86,6 +103,26 @@ namespace orderFollowing.forms
                 {
                     changeItemsVisibleStatus();
                 }
+            }
+        }
+
+        void listAllPaymentTypes()
+        {
+            pType = new cPaymentTypeOperations();
+            pType.sqlQuery = "select explanation from PAYMENTTYPE";
+            pType.showPaymentTypes();
+
+            fillLView();
+        }
+
+        void fillLView()
+        {
+            LViewPTypes.Items.Clear();
+            LViewPTypes.View = View.Details;
+
+            foreach (DataRow row in pType.dataTable.Rows)
+            {
+                LViewPTypes.Items.Add(row["explanation"].ToString());
             }
         }
 
