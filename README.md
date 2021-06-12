@@ -1,5 +1,5 @@
 # restaurant management
-It's for cafes/restaurants to take orders, manage personnel affairs. It's not a completed project yet but I wanted to share where I'm on it. I released that every time I instantiate a new object of a class, that would overload the ram and would decrease the performance of it. So I searched for it and I guess I need to apply singleton design pattern. The project seems to be changed from the outset. There's a lot of work to do. Wish me luck!
+It's for cafes/restaurants to take orders, manage personnel affairs, etc.
  
  Here are some sample pics from the project.
  
